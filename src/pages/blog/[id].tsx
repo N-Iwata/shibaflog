@@ -3,14 +3,10 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 import { client } from '@shibaflog/libs/client'
+import { Blog } from '@shibaflog/types'
 
 type Props = {
-  blog: {
-    id: string
-    title: string
-    body: string
-    publishedAt: string
-  }
+  blog: Blog
 }
 
 const BlogId = ({ blog }: Props) => (
@@ -24,6 +20,11 @@ const BlogId = ({ blog }: Props) => (
     <main>
       <h1>{blog.title}</h1>
       <p>{blog.publishedAt}</p>
+      <ul>
+        {blog.categories.map(({ id, name }) => (
+          <li key={id}>{name}</li>
+        ))}
+      </ul>
       <div
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
@@ -38,7 +39,7 @@ const BlogId = ({ blog }: Props) => (
 )
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data = await client.getList<Props>({ endpoint: 'blog' })
+  const data = await client.getList<Blog>({ endpoint: 'blog' })
 
   const paths = data.contents.map((content) => `/blog/${content.id}`)
   return { paths, fallback: false }
@@ -46,7 +47,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const id = params?.id as string
-  const data = await client.getListDetail<Props>({ endpoint: 'blog', contentId: id })
+  const data = await client.getListDetail<Blog>({ endpoint: 'blog', contentId: id })
 
   return {
     props: {

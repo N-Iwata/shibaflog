@@ -3,13 +3,10 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 import { client } from '@shibaflog/libs/client'
+import { Blog } from '@shibaflog/types'
 
 type Props = {
-  blog: {
-    id: string
-    title: string
-    body: string
-  }[]
+  blog: Blog[]
 }
 
 const Home = ({ blog }: Props) => (
@@ -38,7 +35,7 @@ const Home = ({ blog }: Props) => (
 )
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await client.getList<Props>({ endpoint: 'blog' })
+  const data = await client.getList<Blog>({ endpoint: 'blog' })
 
   return {
     props: {
