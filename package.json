@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --dir src",
-    "lint:fix": "next lint --dir src --fix",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
     "lint:fmt": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
     "postinstall": "husky install"
   },
