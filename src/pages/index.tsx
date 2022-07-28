@@ -3,13 +3,14 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 import { client } from '@shibaflog/libs/client'
-import { Blog } from '@shibaflog/types'
+import { Blog, Category } from '@shibaflog/types'
 
 type Props = {
   blog: Blog[]
+  category: Category[]
 }
 
-const Home = ({ blog }: Props) => (
+const Home = ({ blog, category }: Props) => (
   <div>
     <Head>
       <title>Shibaflog</title>
@@ -18,8 +19,9 @@ const Home = ({ blog }: Props) => (
     </Head>
 
     <main>
-      <h1>Hello world</h1>
+      <h1>Shibaflog</h1>
       <div>
+        <h2>記事一覧</h2>
         <ul>
           {blog.map(({ id, title }) => (
             <li key={id}>
@@ -30,16 +32,30 @@ const Home = ({ blog }: Props) => (
           ))}
         </ul>
       </div>
+      <div>
+        <h2>カテゴリー</h2>
+        <ul>
+          {category.map(({ id, name }) => (
+            <li key={id}>
+              <Link href={`/category/${id}`}>
+                <a>{name}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </main>
   </div>
 )
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await client.getList<Blog>({ endpoint: 'blog' })
+  const blogData = await client.getList<Blog>({ endpoint: 'blog' })
+  const categoryData = await client.getList<Category>({ endpoint: 'categories' })
 
   return {
     props: {
-      blog: data.contents,
+      blog: blogData.contents,
+      category: categoryData.contents,
     },
   }
 }
