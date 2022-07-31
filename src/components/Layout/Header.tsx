@@ -3,13 +3,14 @@ import { GitHubLogoIcon, MoonIcon, SunIcon, TwitterLogoIcon } from '@radix-ui/re
 import Link from 'next/link'
 
 const ICON_SIZE = 36
+const HEADER_HEIGHT = 56
 
 const HeaderLayout = () => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme()
   const dark = colorScheme === 'dark'
 
   return (
-    <Header height={56} mb={120}>
+    <Header height={HEADER_HEIGHT}>
       <Container sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Group>
           <Link href='/'>
@@ -18,7 +19,12 @@ const HeaderLayout = () => {
             </Center>
           </Link>
         </Group>
-        <Group spacing={16} position='right' noWrap sx={{ alignItems: 'center', height: 56 }}>
+        <Group
+          spacing={16}
+          position='right'
+          noWrap
+          sx={{ alignItems: 'center', height: HEADER_HEIGHT }}
+        >
           <a href='https://twitter.com/rpf_nob' target='_blank' rel='noopener noreferrer'>
             <ActionIcon color='blue'>
               <TwitterLogoIcon width={ICON_SIZE} height={ICON_SIZE} />
