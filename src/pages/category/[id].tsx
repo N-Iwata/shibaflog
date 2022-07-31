@@ -23,7 +23,6 @@ const CategoryId = ({ blog, category }: Props) => {
       </Head>
 
       <main>
-        <h1>Shibaflog</h1>
         <div>
           <h2>{category.name}の記事一覧</h2>
           <ul>

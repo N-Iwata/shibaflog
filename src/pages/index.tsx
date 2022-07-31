@@ -19,7 +19,6 @@ const Home = ({ blog, category }: Props) => (
     </Head>
 
     <main>
-      <h1>Shibaflog</h1>
       <div>
         <h2>記事一覧</h2>
         <ul>

@@ -5,7 +5,7 @@ import Link from 'next/link'
 const ICON_SIZE = 36
 const HEADER_HEIGHT = 56
 
-const HeaderLayout = () => {
+const NavBar = () => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme()
   const dark = colorScheme === 'dark'
 
@@ -50,4 +50,4 @@ const HeaderLayout = () => {
   )
 }
 
-export default HeaderLayout
+export default NavBar

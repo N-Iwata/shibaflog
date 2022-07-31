@@ -1,7 +1,8 @@
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from '@mantine/core'
 import { useLocalStorage } from '@mantine/hooks'
 
-import HeaderLayout from './Header'
+import Main from './Main'
+import NavBar from './NavBar'
 
 type Props = {
   children: React.ReactNode
@@ -28,8 +29,8 @@ const Layout = ({ children }: Props) => {
           colorScheme,
         }}
       >
-        <HeaderLayout />
-        {children}
+        <NavBar />
+        <Main>{children}</Main>
       </MantineProvider>
     </ColorSchemeProvider>
   )
