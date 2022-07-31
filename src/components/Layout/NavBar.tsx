@@ -11,7 +11,7 @@ const NavBar = () => {
 
   return (
     <Header height={HEADER_HEIGHT}>
-      <Container sx={{ display: 'flex', justifyContent: 'space-between' }}>
+      <Container sx={{ display: 'flex', justifyContent: 'space-between', maxWidth: 1200 }}>
         <Group>
           <Link href='/'>
             <Center component='a' sx={{ cursor: 'pointer', fontSize: 32, fontWeight: 'bold' }}>
