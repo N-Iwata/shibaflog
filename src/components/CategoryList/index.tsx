@@ -33,7 +33,12 @@ const CategoryList = ({ category }: Props) => (
       {category.map(({ id, name }) => (
         <List.Item key={id}>
           <Link href={`/category/${id}`}>
-            <a>{name}</a>
+            <Box
+              component='a'
+              sx={{ color: 'teal', cursor: 'pointer', ':hover': { textDecoration: 'underline' } }}
+            >
+              {name}
+            </Box>
           </Link>
         </List.Item>
       ))}
