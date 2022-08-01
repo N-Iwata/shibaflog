@@ -1,5 +1,5 @@
 import { Box, List, ThemeIcon, Title } from '@mantine/core'
-import { Pencil1Icon } from '@radix-ui/react-icons'
+import { IconTag } from '@tabler/icons'
 import Link from 'next/link'
 
 import { Category } from '@shibaflog/types'
@@ -18,7 +18,7 @@ const CategoryList = ({ category }: Props) => (
       center
       icon={
         <ThemeIcon color='teal' size={24} radius='xl'>
-          <Pencil1Icon />
+          <IconTag />
         </ThemeIcon>
       }
       sx={{ marginTop: 16 }}

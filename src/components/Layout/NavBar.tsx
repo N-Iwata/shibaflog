@@ -1,8 +1,7 @@
 import { ActionIcon, Center, Container, Group, Header, useMantineColorScheme } from '@mantine/core'
-import { GitHubLogoIcon, MoonIcon, SunIcon, TwitterLogoIcon } from '@radix-ui/react-icons'
+import { IconBrandGithub, IconBrandTwitter, IconMoon, IconSun } from '@tabler/icons'
 import Link from 'next/link'
 
-const ICON_SIZE = 36
 const HEADER_HEIGHT = 56
 
 const NavBar = () => {
@@ -27,22 +26,18 @@ const NavBar = () => {
         >
           <a href='https://twitter.com/rpf_nob' target='_blank' rel='noopener noreferrer'>
             <ActionIcon color='blue'>
-              <TwitterLogoIcon width={ICON_SIZE} height={ICON_SIZE} />
+              <IconBrandTwitter />
             </ActionIcon>
           </a>
 
           <a href='https://github.com/N-Iwata' target='_blank' rel='noopener noreferrer'>
             <ActionIcon color='dark'>
-              <GitHubLogoIcon width={ICON_SIZE} height={ICON_SIZE} />
+              <IconBrandGithub />
             </ActionIcon>
           </a>
 
           <ActionIcon color={dark ? 'yellow' : 'blue'} onClick={() => toggleColorScheme()}>
-            {dark ? (
-              <SunIcon width={ICON_SIZE} height={ICON_SIZE} />
-            ) : (
-              <MoonIcon width={ICON_SIZE} height={ICON_SIZE} />
-            )}
+            {dark ? <IconSun /> : <IconMoon />}
           </ActionIcon>
         </Group>
       </Container>

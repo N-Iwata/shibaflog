@@ -7,10 +7,11 @@ const Bio = () => (
     </Title>
     <Center sx={{ marginTop: 16 }}>
       <Avatar src='avatar.png' alt="it's me" radius='xl' />
+      <Text weight={800} sx={{ marginLeft: 8 }}>
+        のふのふ
+      </Text>
     </Center>
-    <Center sx={{ marginTop: 16 }}>
-      <Text weight={800}>のふのふ</Text>
-    </Center>
+
     <Center sx={{ marginTop: 16 }}>
       <Text>芝生管理が趣味のフロントエンドエンジニア</Text>
     </Center>
