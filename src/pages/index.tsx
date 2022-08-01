@@ -10,10 +10,10 @@ import { Blog, Category } from '@shibaflog/types'
 
 type Props = {
   blog: Blog[]
-  category: Category[]
+  categoryList: Category[]
 }
 
-const Home = ({ blog, category }: Props) => (
+const Home = ({ blog, categoryList }: Props) => (
   <>
     <Head>
       <title>Shibaflog</title>
@@ -42,7 +42,7 @@ const Home = ({ blog, category }: Props) => (
         <Box component='aside'>
           <Stack spacing={32}>
             <Bio />
-            <CategoryList category={category} />
+            <CategoryList categoryList={categoryList} />
           </Stack>
         </Box>
       </Grid.Col>
@@ -52,12 +52,12 @@ const Home = ({ blog, category }: Props) => (
 
 export const getStaticProps: GetStaticProps = async () => {
   const blogData = await client.getList<Blog>({ endpoint: 'blog' })
-  const categoryData = await client.getList<Category>({ endpoint: 'categories' })
+  const categoryListData = await client.getList<Category>({ endpoint: 'categories' })
 
   return {
     props: {
       blog: blogData.contents,
-      category: categoryData.contents,
+      categoryList: categoryListData.contents,
     },
   }
 }

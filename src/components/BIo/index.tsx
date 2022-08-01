@@ -13,7 +13,7 @@ const Bio = () => (
       プロフィール
     </Title>
     <Center sx={{ marginTop: 16 }}>
-      <Avatar src='avatar.png' alt="it's me" radius='xl' />
+      <Avatar src='/avatar.png' alt="it's me" radius='xl' />
       <Text weight={800} sx={{ marginLeft: 8 }}>
         のふのふ
       </Text>

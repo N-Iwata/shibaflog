@@ -5,9 +5,9 @@ import Link from 'next/link'
 import { Category } from '@shibaflog/types'
 
 type Props = {
-  category: Category[]
+  categoryList: Category[]
 }
-const CategoryList = ({ category }: Props) => (
+const CategoryList = ({ categoryList }: Props) => (
   <Box>
     <Title
       order={3}
@@ -30,7 +30,7 @@ const CategoryList = ({ category }: Props) => (
       }
       sx={{ marginTop: 16 }}
     >
-      {category.map(({ id, name }) => (
+      {categoryList.map(({ id, name }) => (
         <List.Item key={id}>
           <Link href={`/category/${id}`}>
             <Box
