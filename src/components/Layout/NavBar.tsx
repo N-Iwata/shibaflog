@@ -9,7 +9,13 @@ const NavBar = () => {
   const dark = colorScheme === 'dark'
 
   return (
-    <Header height={HEADER_HEIGHT}>
+    <Header
+      height={HEADER_HEIGHT}
+      sx={(theme) => ({
+        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.teal[0],
+        color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.gray[9],
+      })}
+    >
       <Container sx={{ display: 'flex', justifyContent: 'space-between', maxWidth: 1200 }}>
         <Group>
           <Link href='/'>

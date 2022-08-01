@@ -10,15 +10,17 @@ const VerticalArticleCard = ({ id, title, hero, categories, publishedAt }: Props
   <Card withBorder radius='md' p={0} sx={{ cursor: 'pointer' }}>
     <Group noWrap spacing={0}>
       <Link href={`/blog/${id}`}>
-        <Image src={hero.url} height={140} width={220} />
+        <Image src={hero.url} height={140} width={200} />
       </Link>
 
       <Link href={`/blog/${id}`}>
-        <Box p='md'>
-          {categories.map(({ name }) => (
-            <Badge sx={{ ml: 'md' }}>{name}</Badge>
-          ))}
-          <Box mt='md'>
+        <Box>
+          <Box px='sm'>
+            {categories.map(({ name }) => (
+              <Badge sx={{ ml: 'md' }}>{name}</Badge>
+            ))}
+          </Box>
+          <Box mt='md' px='sm'>
             <Title order={4} mt='xs' mb='md'>
               {title}
             </Title>
