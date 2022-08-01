@@ -3,6 +3,7 @@ export type Blog = {
   title: string
   body: string
   categories: Category[]
+  hero: Hero
   publishedAt: string
   createdAt: string
   updatedAt: string
@@ -15,4 +16,10 @@ export type Category = {
   updatedAt: string
   publisheAt: string
   revidsedAt: string
+}
+
+export type Hero = {
+  url: string
+  height: number
+  width: number
 }
