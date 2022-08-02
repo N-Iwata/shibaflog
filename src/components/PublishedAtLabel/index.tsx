@@ -9,14 +9,14 @@ type Props = {
 
 const PublishedAtLabel = ({ publishedAt, updatedAt }: Props) => (
   <Group>
-    <Group spacing='xs'>
+    <Group spacing={4}>
       <IconClock size={16} />
       <Text size='sm' color='dimmed'>
         {format(new Date(publishedAt), 'yyyy/MM/dd')}
       </Text>
     </Group>
     {publishedAt < updatedAt && (
-      <Group spacing='xs'>
+      <Group spacing={4}>
         <IconRefresh size={16} />
         <Text size='sm' color='dimmed'>
           {format(new Date(updatedAt), 'yyyy/MM/dd')}

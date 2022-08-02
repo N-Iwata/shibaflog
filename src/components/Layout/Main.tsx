@@ -5,7 +5,7 @@ type Props = {
 }
 
 const Main = ({ children }: Props) => (
-  <Container sx={{ maxWidth: 1200, marginTop: 32 }}>{children}</Container>
+  <Container sx={{ maxWidth: 1280, marginTop: 32 }}>{children}</Container>
 )
 
 export default Main
