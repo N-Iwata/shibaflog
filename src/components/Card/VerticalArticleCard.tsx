@@ -1,12 +1,12 @@
-import { Badge, Box, Card, Group, Image, Text, Title } from '@mantine/core'
-import { format } from 'date-fns'
+import { Badge, Box, Card, Group, Image, Title } from '@mantine/core'
 import Link from 'next/link'
 
+import PublishedAtLabel from '@shibaflog/components/PublishedAtLabel'
 import { Blog } from '@shibaflog/types'
 
-type Props = Pick<Blog, 'id' | 'title' | 'hero' | 'categories' | 'publishedAt'>
+type Props = Pick<Blog, 'id' | 'title' | 'hero' | 'categories' | 'publishedAt' | 'updatedAt'>
 
-const VerticalArticleCard = ({ id, title, hero, categories, publishedAt }: Props) => (
+const VerticalArticleCard = ({ id, title, hero, categories, publishedAt, updatedAt }: Props) => (
   <Card withBorder radius='md' p={0} sx={{ cursor: 'pointer' }}>
     <Group noWrap spacing={0}>
       <Link href={`/blog/${id}`}>
@@ -20,13 +20,12 @@ const VerticalArticleCard = ({ id, title, hero, categories, publishedAt }: Props
               <Badge sx={{ ml: 'md' }}>{name}</Badge>
             ))}
           </Box>
+
           <Box mt='md' px='sm'>
             <Title order={4} mt='xs' mb='md'>
               {title}
             </Title>
-            <Text size='xs' color='dimmed'>
-              {format(new Date(publishedAt), 'yyyy/MM/dd HH:mm:ss')}
-            </Text>
+            <PublishedAtLabel publishedAt={publishedAt} updatedAt={updatedAt} />
           </Box>
         </Box>
       </Link>

@@ -30,8 +30,8 @@ const CategoryId = ({ blog, categoryDetail, categoryList }: Props) => (
               ? `${categoryDetail.name}カテゴリの記事一覧`
               : `${categoryDetail.name}カテゴリの記事がありません`}
           </Title>
-          <Stack spacing={16}>
-            {blog.map(({ title, hero, categories, publishedAt, id }) => (
+          <Stack spacing='md'>
+            {blog.map(({ title, hero, categories, publishedAt, updatedAt, id }) => (
               <VerticalArticleCard
                 key={id}
                 id={id}
@@ -39,6 +39,7 @@ const CategoryId = ({ blog, categoryDetail, categoryList }: Props) => (
                 hero={hero}
                 categories={categories}
                 publishedAt={publishedAt}
+                updatedAt={updatedAt}
               />
             ))}
           </Stack>

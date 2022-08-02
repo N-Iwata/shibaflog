@@ -24,8 +24,8 @@ const Home = ({ blog, categoryList }: Props) => (
     <Grid>
       <Grid.Col sm={12} md={8}>
         <Box component='main'>
-          <Stack spacing={16}>
-            {blog.map(({ title, hero, categories, publishedAt, id }) => (
+          <Stack spacing='md'>
+            {blog.map(({ title, hero, categories, publishedAt, updatedAt, id }) => (
               <VerticalArticleCard
                 key={id}
                 id={id}
@@ -33,6 +33,7 @@ const Home = ({ blog, categoryList }: Props) => (
                 hero={hero}
                 categories={categories}
                 publishedAt={publishedAt}
+                updatedAt={updatedAt}
               />
             ))}
           </Stack>
@@ -40,7 +41,7 @@ const Home = ({ blog, categoryList }: Props) => (
       </Grid.Col>
       <Grid.Col sm={12} md={4}>
         <Box component='aside'>
-          <Stack spacing={32}>
+          <Stack spacing='md'>
             <Bio />
             <CategoryList categoryList={categoryList} />
           </Stack>
