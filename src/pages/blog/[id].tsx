@@ -39,7 +39,7 @@ const BlogId = ({ blog, categoryList }: Props) => {
         </Grid.Col>
         <Grid.Col sm={12} md={4}>
           <Box component='aside'>
-            <Stack spacing={32}>
+            <Stack spacing='xl'>
               <Bio />
               <CategoryList categoryList={categoryList} />
             </Stack>

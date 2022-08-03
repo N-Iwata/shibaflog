@@ -1,5 +1,7 @@
 import { Box, Container, Text } from '@mantine/core'
 
+import { CONTENT_MAX_WIDTH, FOOTER_HEIGHT } from '@shibaflog/const/size'
+
 const Footer = () => (
   <Box
     component='footer'
@@ -13,8 +15,8 @@ const Footer = () => (
       sx={{
         display: 'flex',
         justifyContent: 'center',
-        maxWidth: 1200,
-        height: 56,
+        maxWidth: CONTENT_MAX_WIDTH,
+        height: FOOTER_HEIGHT,
         alignItems: 'center',
       }}
     >

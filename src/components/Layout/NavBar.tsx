@@ -2,7 +2,7 @@ import { ActionIcon, Center, Container, Group, Header, useMantineColorScheme } f
 import { IconBrandGithub, IconBrandTwitter, IconMoon, IconSun } from '@tabler/icons'
 import Link from 'next/link'
 
-const HEADER_HEIGHT = 56
+import { CONTENT_MAX_WIDTH, HEADER_HEIGHT } from '@shibaflog/const/size'
 
 const NavBar = () => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme()
@@ -14,9 +14,12 @@ const NavBar = () => {
       sx={(theme) => ({
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.teal[0],
         color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.gray[9],
+        position: 'fixed',
       })}
     >
-      <Container sx={{ display: 'flex', justifyContent: 'space-between', maxWidth: 1200 }}>
+      <Container
+        sx={{ display: 'flex', justifyContent: 'space-between', maxWidth: CONTENT_MAX_WIDTH }}
+      >
         <Group>
           <Link href='/'>
             <Center component='a' sx={{ cursor: 'pointer', fontSize: 32, fontWeight: 'bold' }}>
@@ -25,7 +28,7 @@ const NavBar = () => {
           </Link>
         </Group>
         <Group
-          spacing={16}
+          spacing='md'
           position='right'
           noWrap
           sx={{ alignItems: 'center', height: HEADER_HEIGHT }}

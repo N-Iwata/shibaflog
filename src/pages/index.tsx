@@ -41,7 +41,7 @@ const Home = ({ blog, categoryList }: Props) => (
       </Grid.Col>
       <Grid.Col sm={12} md={4}>
         <Box component='aside'>
-          <Stack spacing='md'>
+          <Stack spacing='xl'>
             <Bio />
             <CategoryList categoryList={categoryList} />
           </Stack>
