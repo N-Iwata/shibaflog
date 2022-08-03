@@ -1,4 +1,4 @@
-import { ColorScheme, ColorSchemeProvider, MantineProvider } from '@mantine/core'
+import { Box, ColorScheme, ColorSchemeProvider, MantineProvider } from '@mantine/core'
 import { useLocalStorage } from '@mantine/hooks'
 
 import Footer from './Footer'
@@ -30,9 +30,18 @@ const Layout = ({ children }: Props) => {
           colorScheme,
         }}
       >
-        <NavBar />
-        <Main>{children}</Main>
-        <Footer />
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateRows: '1fr auto',
+            gridTemplateColumns: '100%',
+            minHeight: '100vh',
+          }}
+        >
+          <NavBar />
+          <Main>{children}</Main>
+          <Footer />
+        </Box>
       </MantineProvider>
     </ColorSchemeProvider>
   )
