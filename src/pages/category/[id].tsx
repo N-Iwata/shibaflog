@@ -27,8 +27,8 @@ const CategoryId = ({ blog, categoryDetail, categoryList }: Props) => (
         <Box component='main'>
           <Title order={3} mb='md'>
             {blog.length
-              ? `${categoryDetail.name}カテゴリの記事一覧`
-              : `${categoryDetail.name}カテゴリの記事がありません`}
+              ? `[ ${categoryDetail.name} ] カテゴリの記事一覧`
+              : `[ ${categoryDetail.name} ] カテゴリの記事がありません`}
           </Title>
           <Stack spacing='md'>
             {blog.map(({ title, hero, categories, publishedAt, updatedAt, id }) => (
