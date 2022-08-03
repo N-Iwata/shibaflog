@@ -16,8 +16,10 @@ const VerticalArticleCard = ({ id, title, hero, categories, publishedAt, updated
       <Link href={`/blog/${id}`}>
         <Box>
           <Box px='sm'>
-            {categories.map(({ name }) => (
-              <Badge sx={{ ml: 'md' }}>{name}</Badge>
+            {categories.map(({ id, name }) => (
+              <Badge key={id} sx={{ ml: 'md' }}>
+                {name}
+              </Badge>
             ))}
           </Box>
 

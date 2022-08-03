@@ -12,8 +12,10 @@ const BlogContent = ({ title, hero, body, categories, publishedAt, updatedAt }: 
     <Title order={2}>{title}</Title>
     <PublishedAtLabel publishedAt={publishedAt} updatedAt={updatedAt} />
     <Box>
-      {categories.map(({ name }) => (
-        <Badge sx={{ ml: 'md' }}>{name}</Badge>
+      {categories.map(({ id, name }) => (
+        <Badge key={id} sx={{ ml: 'md' }}>
+          {name}
+        </Badge>
       ))}
     </Box>
 
