@@ -1,4 +1,4 @@
-import { Avatar, Box, Center, Text, Title } from '@mantine/core'
+import { Avatar, Box, Center, Space, Text, Title } from '@mantine/core'
 
 const Bio = () => (
   <Box>
@@ -19,14 +19,14 @@ const Bio = () => (
     <Center mt='md'>
       <Avatar src='/avatar.png' alt="it's me" radius='xl' />
       <Text weight={800} ml='xs'>
-        のふのふ
+        のふのふ🀄️
       </Text>
     </Center>
 
     <Text mt='md' mx='xs' sx={{ fontSize: 14 }}>
       芝生管理が趣味のフロントエンドエンジニアです。
-      <br />
-      埼玉県内の自宅で芝生を管理しているので、その記録をお伝えできたらと思います。
+      <Space h='md' />
+      埼玉県内の自宅で芝生を管理しているので、その様子を記事に書いてお伝えできたらと思います。
     </Text>
   </Box>
 )
