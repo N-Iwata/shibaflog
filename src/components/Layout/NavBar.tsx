@@ -1,4 +1,4 @@
-import { ActionIcon, Center, Container, Group, Header, useMantineColorScheme } from '@mantine/core'
+import { ActionIcon, Anchor, Container, Group, Header, useMantineColorScheme } from '@mantine/core'
 import { IconBrandGithub, IconBrandTwitter, IconMoon, IconSun } from '@tabler/icons'
 import Link from 'next/link'
 
@@ -12,7 +12,7 @@ const NavBar = () => {
     <Header
       height={HEADER_HEIGHT}
       sx={(theme) => ({
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.teal[0],
+        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.teal[2],
         color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.gray[9],
         position: 'fixed',
       })}
@@ -22,9 +22,17 @@ const NavBar = () => {
       >
         <Group>
           <Link href='/'>
-            <Center component='a' sx={{ cursor: 'pointer', fontSize: 32, fontWeight: 'bold' }}>
+            <Anchor
+              sx={(theme) => ({
+                color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.gray[9],
+                cursor: 'pointer',
+                fontSize: 32,
+                fontWeight: 'bold',
+                ':hover': { textDecoration: 'none' },
+              })}
+            >
               Shibaflog
-            </Center>
+            </Anchor>
           </Link>
         </Group>
         <Group

@@ -5,7 +5,7 @@ const Bio = () => (
     <Title
       order={4}
       sx={(theme) => ({
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.teal[0],
+        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.teal[2],
         color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.gray[7],
         padding: '4px 8px',
         fontSize: 18,
