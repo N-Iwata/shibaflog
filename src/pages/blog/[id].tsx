@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Head from 'next/head'
 
@@ -15,6 +17,16 @@ type Props = {
 
 const BlogId = ({ blog, categoryList, archiveList }: Props) => {
   const { title, hero, updatedAt, publishedAt, body, categories } = blog
+
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = 'https://platform.twitter.com/widgets.js'
+    document.body.appendChild(script)
+
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
 
   return (
     <>
