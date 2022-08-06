@@ -31,10 +31,20 @@ const CategoryList = ({ categoryList }: Props) => (
           <IconTag />
         </ThemeIcon>
       }
-      sx={{ marginTop: 16 }}
+      mt='md'
+      ml='sm'
     >
       {categoryList.map(({ id, name }) => (
-        <List.Item key={id}>
+        <List.Item
+          key={id}
+          pb='xs'
+          sx={(theme) => ({
+            borderBottom:
+              theme.colorScheme === 'dark'
+                ? `1px solid ${theme.colors.dark[5]}`
+                : `1px solid ${theme.colors.teal[2]}`,
+          })}
+        >
           <Link href={`/category/${id}`}>
             <Anchor sx={{ color: 'teal' }}>{name}</Anchor>
           </Link>

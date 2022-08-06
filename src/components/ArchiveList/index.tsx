@@ -31,10 +31,20 @@ const ArchiveList = ({ archiveList }: Props) => (
           <IconCalendarStats />
         </ThemeIcon>
       }
-      sx={{ marginTop: 16 }}
+      mt='md'
+      ml='sm'
     >
       {Object.keys(archiveList).map((index) => (
-        <List.Item key={index}>
+        <List.Item
+          key={index}
+          pb='xs'
+          sx={(theme) => ({
+            borderBottom:
+              theme.colorScheme === 'dark'
+                ? `1px solid ${theme.colors.dark[5]}`
+                : `1px solid ${theme.colors.teal[2]}`,
+          })}
+        >
           <Link href={`/archive/${index}`}>
             <Anchor sx={{ color: 'teal' }}>
               {index}（{archiveList[index].length}）
