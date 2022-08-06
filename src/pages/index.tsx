@@ -2,18 +2,21 @@ import { Box, Grid, Stack } from '@mantine/core'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 
-import Bio from '@shibaflog/components/BIo'
+import ArchiveList from '@shibaflog/components/ArchiveList'
+import Bio from '@shibaflog/components/Bio'
 import VerticalArticleCard from '@shibaflog/components/Card/VerticalArticleCard'
 import CategoryList from '@shibaflog/components/CategoryList'
+import { getArchiveList } from '@shibaflog/libs/archive'
 import { client } from '@shibaflog/libs/client'
-import { Blog, Category } from '@shibaflog/types'
+import { Blog, Category, Archive } from '@shibaflog/types'
 
 type Props = {
   blog: Blog[]
   categoryList: Category[]
+  archiveList: Archive
 }
 
-const Home = ({ blog, categoryList }: Props) => (
+const Home = ({ blog, categoryList, archiveList }: Props) => (
   <>
     <Head>
       <title>Shibaflog</title>
@@ -44,6 +47,7 @@ const Home = ({ blog, categoryList }: Props) => (
           <Stack spacing='xl'>
             <Bio />
             <CategoryList categoryList={categoryList} />
+            <ArchiveList archiveList={archiveList} />
           </Stack>
         </Box>
       </Grid.Col>
@@ -52,13 +56,15 @@ const Home = ({ blog, categoryList }: Props) => (
 )
 
 export const getStaticProps: GetStaticProps = async () => {
-  const blogData = await client.getList<Blog>({ endpoint: 'blog' })
+  const allBlogData = await client.getList<Blog>({ endpoint: 'blog', queries: { limit: 3000 } })
   const categoryListData = await client.getList<Category>({ endpoint: 'categories' })
+  const archiveListData = getArchiveList(allBlogData.contents)
 
   return {
     props: {
-      blog: blogData.contents,
+      blog: allBlogData.contents,
       categoryList: categoryListData.contents,
+      archiveList: archiveListData,
     },
   }
 }

@@ -8,16 +8,17 @@ import VerticalArticleCard from '@shibaflog/components/Card/VerticalArticleCard'
 import CategoryList from '@shibaflog/components/CategoryList'
 import { getArchiveList } from '@shibaflog/libs/archive'
 import { client } from '@shibaflog/libs/client'
+import { formatYearMonth } from '@shibaflog/libs/date'
 import { Blog, Category, Archive } from '@shibaflog/types'
 
 type Props = {
   blog: Blog[]
-  categoryDetail: Category
+  month: string
   categoryList: Category[]
   archiveList: Archive
 }
 
-const CategoryId = ({ blog, categoryDetail, categoryList, archiveList }: Props) => (
+const ArchiveId = ({ blog, month, categoryList, archiveList }: Props) => (
   <>
     <Head>
       <title>Shibaflog</title>
@@ -29,9 +30,7 @@ const CategoryId = ({ blog, categoryDetail, categoryList, archiveList }: Props) 
       <Grid.Col sm={12} md={8}>
         <Box component='main'>
           <Title order={3} mb='md'>
-            {blog.length
-              ? `[ ${categoryDetail.name} ] カテゴリの記事一覧`
-              : `[ ${categoryDetail.name} ] カテゴリの記事がありません`}
+            [ {month} ] の記事一覧
           </Title>
           <Stack spacing='md'>
             {blog.map(({ title, hero, categories, publishedAt, updatedAt, id }) => (
@@ -62,38 +61,38 @@ const CategoryId = ({ blog, categoryDetail, categoryList, archiveList }: Props) 
 )
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data = await client.getList<Category>({ endpoint: 'categories' })
-
-  const paths = data.contents.map((content) => `/category/${content.id}`)
-  return { paths, fallback: false }
-}
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const id = params?.id as string
   const allBlogData = await client.getList<Blog>({
     endpoint: 'blog',
     queries: { limit: 3000 },
   })
-  const categoryBlogData = await client.getList<Blog>({
-    endpoint: 'blog',
-    queries: { filters: `categories[contains]${id}`, limit: 3000 },
-  })
 
-  const categoryDetailData = await client.getListDetail<Category>({
-    endpoint: 'categories',
-    contentId: id,
+  const paths = allBlogData.contents.map(
+    (content) => `/archive/${formatYearMonth(content.publishedAt)}`,
+  )
+  return { paths, fallback: false }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const month = params?.id as string
+  const allBlogData = await client.getList<Blog>({
+    endpoint: 'blog',
+    queries: { limit: 3000 },
   })
+  const monthArchiveBlogData = allBlogData.contents.filter(
+    (contents) => formatYearMonth(contents.publishedAt) === month,
+  )
+
   const categoryListData = await client.getList<Category>({ endpoint: 'categories' })
   const archiveListData = getArchiveList(allBlogData.contents)
 
   return {
     props: {
-      blog: categoryBlogData.contents,
-      categoryDetail: categoryDetailData,
+      blog: monthArchiveBlogData,
+      month,
       categoryList: categoryListData.contents,
       archiveList: archiveListData,
     },
   }
 }
 
-export default CategoryId
+export default ArchiveId

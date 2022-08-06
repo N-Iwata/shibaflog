@@ -7,7 +7,7 @@ export type Blog = {
   publishedAt: string
   createdAt: string
   updatedAt: string
-  revidsedAt: string
+  revisedAt: string
 }
 export type Category = {
   id: string
@@ -22,4 +22,8 @@ export type Hero = {
   url: string
   height: number
   width: number
+}
+
+export type Archive = {
+  [month: string]: Blog[]
 }
