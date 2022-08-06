@@ -1,6 +1,7 @@
 import { Group, Text } from '@mantine/core'
 import { IconClock, IconRefresh } from '@tabler/icons'
-import { format } from 'date-fns'
+
+import { formatYearMonthDay } from '@shibaflog/libs/date'
 
 type Props = {
   publishedAt: string
@@ -12,14 +13,14 @@ const PublishedAtLabel = ({ publishedAt, updatedAt }: Props) => (
     <Group spacing={4}>
       <IconClock size={16} />
       <Text size='sm' color='dimmed'>
-        {format(new Date(publishedAt), 'yyyy/MM/dd')}
+        {formatYearMonthDay(publishedAt)}
       </Text>
     </Group>
     {publishedAt < updatedAt && (
       <Group spacing={4}>
         <IconRefresh size={16} />
         <Text size='sm' color='dimmed'>
-          {format(new Date(updatedAt), 'yyyy/MM/dd')}
+          {formatYearMonthDay(updatedAt)}
         </Text>
       </Group>
     )}

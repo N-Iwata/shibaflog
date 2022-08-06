@@ -2,7 +2,7 @@ import { Box, Grid, Stack } from '@mantine/core'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Head from 'next/head'
 
-import Bio from '@shibaflog/components/BIo'
+import Bio from '@shibaflog/components/Bio'
 import BlogContent from '@shibaflog/components/Blog'
 import CategoryList from '@shibaflog/components/CategoryList'
 import { client } from '@shibaflog/libs/client'

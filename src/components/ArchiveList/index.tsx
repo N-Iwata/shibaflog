@@ -1,13 +1,13 @@
 import { Anchor, Box, List, ThemeIcon, Title } from '@mantine/core'
-import { IconTag } from '@tabler/icons'
+import { IconCalendarStats } from '@tabler/icons'
 import Link from 'next/link'
 
-import { Category } from '@shibaflog/types'
+import { Archive } from '@shibaflog/types'
 
 type Props = {
-  categoryList: Category[]
+  archiveList: Archive
 }
-const CategoryList = ({ categoryList }: Props) => (
+const ArchiveList = ({ archiveList }: Props) => (
   <Box>
     <Title
       order={4}
@@ -20,7 +20,7 @@ const CategoryList = ({ categoryList }: Props) => (
         borderRadius: 16,
       })}
     >
-      カテゴリ
+      月別アーカイブ
     </Title>
 
     <List
@@ -28,15 +28,17 @@ const CategoryList = ({ categoryList }: Props) => (
       center
       icon={
         <ThemeIcon color='teal' size={28} radius='xl'>
-          <IconTag />
+          <IconCalendarStats />
         </ThemeIcon>
       }
       sx={{ marginTop: 16 }}
     >
-      {categoryList.map(({ id, name }) => (
-        <List.Item key={id}>
-          <Link href={`/category/${id}`}>
-            <Anchor sx={{ color: 'teal' }}>{name}</Anchor>
+      {Object.keys(archiveList).map((index) => (
+        <List.Item key={index}>
+          <Link href={`/archive/${index}`}>
+            <Anchor sx={{ color: 'teal' }}>
+              {index}（{archiveList[index].length}）
+            </Anchor>
           </Link>
         </List.Item>
       ))}
@@ -44,4 +46,4 @@ const CategoryList = ({ categoryList }: Props) => (
   </Box>
 )
 
-export default CategoryList
+export default ArchiveList
