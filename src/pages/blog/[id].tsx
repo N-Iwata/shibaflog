@@ -1,19 +1,19 @@
-import { Box, Grid, Stack } from '@mantine/core'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Head from 'next/head'
 
-import Bio from '@shibaflog/components/Bio'
 import BlogContent from '@shibaflog/components/Blog'
-import CategoryList from '@shibaflog/components/CategoryList'
+import Main from '@shibaflog/components/Layout/Main'
+import { getArchiveList } from '@shibaflog/libs/archive'
 import { client } from '@shibaflog/libs/client'
-import { Blog, Category } from '@shibaflog/types'
+import { Archive, Blog, Category } from '@shibaflog/types'
 
 type Props = {
   blog: Blog
   categoryList: Category[]
+  archiveList: Archive
 }
 
-const BlogId = ({ blog, categoryList }: Props) => {
+const BlogId = ({ blog, categoryList, archiveList }: Props) => {
   const { title, hero, updatedAt, publishedAt, body, categories } = blog
 
   return (
@@ -24,28 +24,16 @@ const BlogId = ({ blog, categoryList }: Props) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <Grid>
-        <Grid.Col sm={12} md={8}>
-          <Box component='main'>
-            <BlogContent
-              title={title}
-              hero={hero}
-              body={body}
-              categories={categories}
-              publishedAt={publishedAt}
-              updatedAt={updatedAt}
-            />
-          </Box>
-        </Grid.Col>
-        <Grid.Col sm={12} md={4}>
-          <Box component='aside'>
-            <Stack spacing='xl'>
-              <Bio />
-              <CategoryList categoryList={categoryList} />
-            </Stack>
-          </Box>
-        </Grid.Col>
-      </Grid>
+      <Main categoryList={categoryList} archiveList={archiveList}>
+        <BlogContent
+          title={title}
+          hero={hero}
+          body={body}
+          categories={categories}
+          publishedAt={publishedAt}
+          updatedAt={updatedAt}
+        />
+      </Main>
     </>
   )
 }
@@ -59,13 +47,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const id = params?.id as string
+  const allBlogData = await client.getList<Blog>({
+    endpoint: 'blog',
+    queries: { limit: 3000 },
+  })
   const blogData = await client.getListDetail<Blog>({ endpoint: 'blog', contentId: id })
   const categoryListData = await client.getList<Category>({ endpoint: 'categories' })
-
+  const archiveListData = getArchiveList(allBlogData.contents)
   return {
     props: {
       blog: blogData,
       categoryList: categoryListData.contents,
+      archiveList: archiveListData,
     },
   }
 }

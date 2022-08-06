@@ -2,7 +2,6 @@ import { Box, ColorScheme, ColorSchemeProvider, MantineProvider } from '@mantine
 import { useLocalStorage } from '@mantine/hooks'
 
 import Footer from './Footer'
-import Main from './Main'
 import NavBar from './NavBar'
 
 type Props = {
@@ -39,7 +38,7 @@ const Layout = ({ children }: Props) => {
           }}
         >
           <NavBar />
-          <Main>{children}</Main>
+          {children}
           <Footer />
         </Box>
       </MantineProvider>

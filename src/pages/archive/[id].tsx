@@ -1,11 +1,9 @@
-import { Box, Grid, Stack, Title } from '@mantine/core'
+import { Stack, Title } from '@mantine/core'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Head from 'next/head'
 
-import ArchiveList from '@shibaflog/components/ArchiveList'
-import Bio from '@shibaflog/components/Bio'
 import VerticalArticleCard from '@shibaflog/components/Card/VerticalArticleCard'
-import CategoryList from '@shibaflog/components/CategoryList'
+import Main from '@shibaflog/components/Layout/Main'
 import { getArchiveList } from '@shibaflog/libs/archive'
 import { client } from '@shibaflog/libs/client'
 import { formatYearMonth } from '@shibaflog/libs/date'
@@ -26,37 +24,24 @@ const ArchiveId = ({ blog, month, categoryList, archiveList }: Props) => (
       <link rel='icon' href='/favicon.ico' />
     </Head>
 
-    <Grid>
-      <Grid.Col sm={12} md={8}>
-        <Box component='main'>
-          <Title order={3} mb='md'>
-            [ {month} ] の記事一覧
-          </Title>
-          <Stack spacing='md'>
-            {blog.map(({ title, hero, categories, publishedAt, updatedAt, id }) => (
-              <VerticalArticleCard
-                key={id}
-                id={id}
-                title={title}
-                hero={hero}
-                categories={categories}
-                publishedAt={publishedAt}
-                updatedAt={updatedAt}
-              />
-            ))}
-          </Stack>
-        </Box>
-      </Grid.Col>
-      <Grid.Col sm={12} md={4}>
-        <Box component='aside'>
-          <Stack spacing='xl'>
-            <Bio />
-            <CategoryList categoryList={categoryList} />
-            <ArchiveList archiveList={archiveList} />
-          </Stack>
-        </Box>
-      </Grid.Col>
-    </Grid>
+    <Main categoryList={categoryList} archiveList={archiveList}>
+      <Title order={3} mb='md'>
+        [ {month} ] の記事一覧
+      </Title>
+      <Stack spacing='md'>
+        {blog.map(({ title, hero, categories, publishedAt, updatedAt, id }) => (
+          <VerticalArticleCard
+            key={id}
+            id={id}
+            title={title}
+            hero={hero}
+            categories={categories}
+            publishedAt={publishedAt}
+            updatedAt={updatedAt}
+          />
+        ))}
+      </Stack>
+    </Main>
   </>
 )
 
