@@ -14,7 +14,7 @@ const NavBar = () => {
       sx={(theme) => ({
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.teal[2],
         color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.gray[9],
-        position: 'fixed',
+        position: 'sticky',
       })}
     >
       <Container

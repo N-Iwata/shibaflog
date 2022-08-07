@@ -23,11 +23,15 @@ const Bio = () => (
       </Text>
     </Center>
 
-    <Text mt='md' mx='xs' sx={{ fontSize: 14 }}>
-      芝生管理が趣味のフロントエンドエンジニアです。
-      <Space h='md' />
-      埼玉県内の自宅で芝生を管理しているので、その様子を記事に書いてお伝えできたらと思います。
-    </Text>
+    <Center mt='md'>
+      <Text mt='md' mx='xs' sx={{ fontSize: 14, textAlign: 'center' }}>
+        芝生管理が趣味のフロントエンドエンジニアです。
+        <Space h='md' />
+        埼玉県内の自宅で芝生を管理しているので、
+        <Space h={0} />
+        その様子を記事に書いてお伝えできたらと思います。
+      </Text>
+    </Center>
   </Box>
 )
 

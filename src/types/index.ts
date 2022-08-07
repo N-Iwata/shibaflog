@@ -27,3 +27,9 @@ export type Hero = {
 export type Archive = {
   [month: string]: Blog[]
 }
+
+export type Toc = {
+  text: string
+  id: string
+  name: string
+}

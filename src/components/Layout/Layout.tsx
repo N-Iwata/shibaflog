@@ -32,7 +32,7 @@ const Layout = ({ children }: Props) => {
         <Box
           sx={{
             display: 'grid',
-            gridTemplateRows: '1fr auto',
+            gridTemplateRows: 'auto 1fr auto',
             gridTemplateColumns: '100%',
             minHeight: '100vh',
           }}

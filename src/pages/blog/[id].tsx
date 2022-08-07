@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Head from 'next/head'
@@ -7,6 +7,7 @@ import BlogContent from '@shibaflog/components/Blog'
 import Main from '@shibaflog/components/Layout/Main'
 import { getArchiveList } from '@shibaflog/libs/archive'
 import { client } from '@shibaflog/libs/client'
+import { getTocData } from '@shibaflog/libs/tableOfContents'
 import { Archive, Blog, Category } from '@shibaflog/types'
 
 type Props = {
@@ -16,7 +17,9 @@ type Props = {
 }
 
 const BlogId = ({ blog, categoryList, archiveList }: Props) => {
+  const [activeId, setActiveId] = useState('')
   const { title, hero, updatedAt, publishedAt, body, categories } = blog
+  const tocData = getTocData(body)
 
   useEffect(() => {
     const script = document.createElement('script')
@@ -36,7 +39,12 @@ const BlogId = ({ blog, categoryList, archiveList }: Props) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <Main categoryList={categoryList} archiveList={archiveList}>
+      <Main
+        categoryList={categoryList}
+        archiveList={archiveList}
+        tocData={tocData}
+        activeId={activeId}
+      >
         <BlogContent
           title={title}
           hero={hero}
@@ -44,6 +52,7 @@ const BlogId = ({ blog, categoryList, archiveList }: Props) => {
           categories={categories}
           publishedAt={publishedAt}
           updatedAt={updatedAt}
+          setActiveId={setActiveId}
         />
       </Main>
     </>
