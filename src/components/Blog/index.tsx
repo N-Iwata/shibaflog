@@ -1,11 +1,16 @@
 import { Dispatch, SetStateAction, useEffect } from 'react'
 
 import { Badge, Box, Image, Stack, Title } from '@mantine/core'
+import { useMediaQuery } from '@mantine/hooks'
 
 import PublishedAtLabel from '@shibaflog/components/PublishedAtLabel'
-import { Blog } from '@shibaflog/types'
+import { Blog, Toc } from '@shibaflog/types'
+
+import TableOfContents from '../TableOfContents'
 
 type Props = Pick<Blog, 'title' | 'hero' | 'body' | 'categories' | 'publishedAt' | 'updatedAt'> & {
+  tocData: Toc[]
+  activeId: string
   setActiveId: Dispatch<SetStateAction<string>>
 }
 
@@ -16,8 +21,12 @@ const BlogContent = ({
   categories,
   publishedAt,
   updatedAt,
+  tocData,
+  activeId,
   setActiveId,
 }: Props) => {
+  const matches = useMediaQuery('(min-width: 1000px)')
+
   useEffect(() => {
     if (document !== undefined) {
       const highlightToc = () => {
@@ -61,6 +70,8 @@ const BlogContent = ({
           </Badge>
         ))}
       </Box>
+
+      {!matches && <TableOfContents tocData={tocData} activeId={activeId} />}
 
       <Box
         // eslint-disable-next-line react/no-danger

@@ -52,6 +52,8 @@ const BlogId = ({ blog, categoryList, archiveList }: Props) => {
           categories={categories}
           publishedAt={publishedAt}
           updatedAt={updatedAt}
+          tocData={tocData}
+          activeId={activeId}
           setActiveId={setActiveId}
         />
       </Main>
