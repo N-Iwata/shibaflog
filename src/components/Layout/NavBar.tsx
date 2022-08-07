@@ -1,5 +1,5 @@
 import { ActionIcon, Anchor, Container, Group, Header, useMantineColorScheme } from '@mantine/core'
-import { IconBrandGithub, IconBrandTwitter, IconMoon, IconSun } from '@tabler/icons'
+import { IconMoon, IconSun } from '@tabler/icons'
 import Link from 'next/link'
 
 import { CONTENT_MAX_WIDTH, HEADER_HEIGHT } from '@shibaflog/const/size'
@@ -41,7 +41,7 @@ const NavBar = () => {
           noWrap
           sx={{ alignItems: 'center', height: HEADER_HEIGHT }}
         >
-          <a href='https://twitter.com/rpf_nob' target='_blank' rel='noopener noreferrer'>
+          {/* <a href='https://twitter.com/rpf_nob' target='_blank' rel='noopener noreferrer'>
             <ActionIcon color='blue' sx={{ ':hover': { background: 'none' } }}>
               <IconBrandTwitter />
             </ActionIcon>
@@ -51,7 +51,7 @@ const NavBar = () => {
             <ActionIcon color='dark' sx={{ ':hover': { background: 'none' } }}>
               <IconBrandGithub />
             </ActionIcon>
-          </a>
+          </a> */}
 
           <ActionIcon
             color={dark ? 'yellow' : 'blue'}

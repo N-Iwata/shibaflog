@@ -1,5 +1,7 @@
 import { Avatar, Box, Center, Space, Text, Title } from '@mantine/core'
 
+import TwitterFollowButton from '../Twitter/TwitterFollowButton'
+
 const Bio = () => (
   <Box>
     <Title
@@ -31,6 +33,12 @@ const Bio = () => (
         <Space h={0} />
         その様子を記事に書いてお伝えできたらと思います。
       </Text>
+    </Center>
+
+    <Center mt='md'>
+      <TwitterFollowButton href='https://twitter.com/rpf_nob' target='_blank'>
+        Follow on Twitter
+      </TwitterFollowButton>
     </Center>
   </Box>
 )
