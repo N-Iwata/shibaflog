@@ -42,18 +42,22 @@ const NavBar = () => {
           sx={{ alignItems: 'center', height: HEADER_HEIGHT }}
         >
           <a href='https://twitter.com/rpf_nob' target='_blank' rel='noopener noreferrer'>
-            <ActionIcon color='blue'>
+            <ActionIcon color='blue' sx={{ ':hover': { background: 'none' } }}>
               <IconBrandTwitter />
             </ActionIcon>
           </a>
 
           <a href='https://github.com/N-Iwata' target='_blank' rel='noopener noreferrer'>
-            <ActionIcon color='dark'>
+            <ActionIcon color='dark' sx={{ ':hover': { background: 'none' } }}>
               <IconBrandGithub />
             </ActionIcon>
           </a>
 
-          <ActionIcon color={dark ? 'yellow' : 'blue'} onClick={() => toggleColorScheme()}>
+          <ActionIcon
+            color={dark ? 'yellow' : 'blue'}
+            sx={{ ':hover': { background: 'none' } }}
+            onClick={() => toggleColorScheme()}
+          >
             {dark ? <IconSun /> : <IconMoon />}
           </ActionIcon>
         </Group>
