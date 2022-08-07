@@ -6,15 +6,19 @@ import { useMediaQuery } from '@mantine/hooks'
 import PublishedAtLabel from '@shibaflog/components/PublishedAtLabel'
 import { Blog, Toc } from '@shibaflog/types'
 
+import Share from '../Share'
 import TableOfContents from '../TableOfContents'
 
-type Props = Pick<Blog, 'title' | 'hero' | 'body' | 'categories' | 'publishedAt' | 'updatedAt'> & {
+type Props = Pick<
+  Blog,
+  'id' | 'title' | 'hero' | 'body' | 'categories' | 'publishedAt' | 'updatedAt'
+> & {
   tocData: Toc[]
-  activeId: string
   setActiveId: Dispatch<SetStateAction<string>>
 }
 
 const BlogContent = ({
+  id,
   title,
   hero,
   body,
@@ -22,7 +26,6 @@ const BlogContent = ({
   publishedAt,
   updatedAt,
   tocData,
-  activeId,
   setActiveId,
 }: Props) => {
   const matches = useMediaQuery('(min-width: 1000px)')
@@ -61,7 +64,7 @@ const BlogContent = ({
     <Stack spacing='md'>
       <Image src={hero.url} />
 
-      <Title order={2}>{title}</Title>
+      <Title order={1}>{title}</Title>
       <PublishedAtLabel publishedAt={publishedAt} updatedAt={updatedAt} />
       <Box>
         {categories.map(({ id, name }) => (
@@ -71,7 +74,7 @@ const BlogContent = ({
         ))}
       </Box>
 
-      {!matches && <TableOfContents tocData={tocData} activeId={activeId} />}
+      {!matches && <TableOfContents tocData={tocData} />}
 
       <Box
         // eslint-disable-next-line react/no-danger
@@ -82,8 +85,11 @@ const BlogContent = ({
           img: {
             width: '100%',
           },
+          'h2,h3,h4': { marginTop: -70, paddingTop: 70 },
         }}
       />
+
+      <Share title={title} id={id} />
     </Stack>
   )
 }
