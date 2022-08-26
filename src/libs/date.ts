@@ -1,4 +1,7 @@
 import { format } from 'date-fns'
+import { ja } from 'date-fns/locale'
 
-export const formatYearMonth = (date: string): string => format(new Date(date), 'yyyy_MM')
-export const formatYearMonthDay = (date: string): string => format(new Date(date), 'yyyy_MM_dd')
+export const formatYearMonth = (date: string): string =>
+  format(new Date(date), 'yyyy_MM', { locale: ja })
+export const formatYearMonthDay = (date: string): string =>
+  format(new Date(date), 'yyyy_MM_dd', { locale: ja })
