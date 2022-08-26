@@ -1,5 +1,4 @@
 import { Box, Container, Grid, Stack } from '@mantine/core'
-import { useMediaQuery } from '@mantine/hooks'
 
 import { CONTENT_MAX_WIDTH, CONTENT_TOP } from '@shibaflog/const/size'
 import { Archive, Category, Toc } from '@shibaflog/types'
@@ -18,7 +17,7 @@ type Props = {
 }
 
 const Main = ({ children, categoryList, archiveList, tocData, activeId }: Props) => {
-  const matches = useMediaQuery('(min-width: 1000px)')
+  const matches = true
   return (
     <Container sx={{ width: '100%', maxWidth: CONTENT_MAX_WIDTH, marginTop: CONTENT_TOP }}>
       <Grid>
@@ -35,11 +34,18 @@ const Main = ({ children, categoryList, archiveList, tocData, activeId }: Props)
               <ArchiveList archiveList={archiveList} />
             </Stack>
           </Box>
-          {matches && (
-            <Box mt='md' sx={{ position: 'sticky', top: 72 }}>
-              {tocData && tocData.length > 0 && (
-                <TableOfContents tocData={tocData} activeId={activeId} />
-              )}
+          {matches && tocData && tocData.length > 0 && (
+            <Box
+              mt='md'
+              sx={{
+                position: 'sticky',
+                top: 72,
+                '@media (max-width: 1000px)': {
+                  display: 'none',
+                },
+              }}
+            >
+              <TableOfContents tocData={tocData} activeId={activeId} />
             </Box>
           )}
         </Grid.Col>

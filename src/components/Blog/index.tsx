@@ -1,7 +1,6 @@
 import { Dispatch, SetStateAction, useEffect } from 'react'
 
 import { Badge, Box, Image, Stack, Title } from '@mantine/core'
-import { useMediaQuery } from '@mantine/hooks'
 
 import PublishedAtLabel from '@shibaflog/components/PublishedAtLabel'
 import { Blog, Toc } from '@shibaflog/types'
@@ -28,8 +27,6 @@ const BlogContent = ({
   tocData,
   setActiveId,
 }: Props) => {
-  const matches = useMediaQuery('(min-width: 1000px)')
-
   useEffect(() => {
     if (document !== undefined) {
       const highlightToc = () => {
@@ -46,7 +43,10 @@ const BlogContent = ({
           if (entry) {
             const index = anchorsArray.indexOf(entry.target)
             const { id } = anchorsArray[index]
-            setActiveId(id)
+
+            if (id) {
+              setActiveId(id)
+            }
           }
         }
 
@@ -73,9 +73,15 @@ const BlogContent = ({
           </Badge>
         ))}
       </Box>
-
-      {!matches && <TableOfContents tocData={tocData} />}
-
+      <Box
+        sx={{
+          '@media (min-width: 1000px)': {
+            display: 'none',
+          },
+        }}
+      >
+        <TableOfContents tocData={tocData} />
+      </Box>
       <Box
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
