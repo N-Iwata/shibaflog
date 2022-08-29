@@ -22,7 +22,7 @@ const Home = ({ blog, categoryList, archiveList }: Props) => (
     </Head>
 
     <Main categoryList={categoryList} archiveList={archiveList}>
-      {blog.map(({ title, hero, categories, publishedAt, updatedAt, id }) => (
+      {blog.map(({ title, hero, categories, publishedAt, revisedAt, id }) => (
         <VerticalArticleCard
           key={id}
           id={id}
@@ -30,7 +30,7 @@ const Home = ({ blog, categoryList, archiveList }: Props) => (
           hero={hero}
           categories={categories}
           publishedAt={publishedAt}
-          updatedAt={updatedAt}
+          revisedAt={revisedAt}
         />
       ))}
     </Main>

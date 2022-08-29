@@ -18,7 +18,7 @@ type Props = {
 
 const BlogId = ({ blog, categoryList, archiveList }: Props) => {
   const [activeId, setActiveId] = useState('')
-  const { id, title, hero, updatedAt, publishedAt, body, categories } = blog
+  const { id, title, hero, revisedAt, publishedAt, body, categories } = blog
   const tocData = getTocData(body)
 
   useEffect(() => {
@@ -52,7 +52,7 @@ const BlogId = ({ blog, categoryList, archiveList }: Props) => {
           body={body}
           categories={categories}
           publishedAt={publishedAt}
-          updatedAt={updatedAt}
+          revisedAt={revisedAt}
           tocData={tocData}
           setActiveId={setActiveId}
         />

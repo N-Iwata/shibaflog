@@ -10,7 +10,7 @@ import TableOfContents from '../TableOfContents'
 
 type Props = Pick<
   Blog,
-  'id' | 'title' | 'hero' | 'body' | 'categories' | 'publishedAt' | 'updatedAt'
+  'id' | 'title' | 'hero' | 'body' | 'categories' | 'publishedAt' | 'revisedAt'
 > & {
   tocData: Toc[]
   setActiveId: Dispatch<SetStateAction<string>>
@@ -23,7 +23,7 @@ const BlogContent = ({
   body,
   categories,
   publishedAt,
-  updatedAt,
+  revisedAt,
   tocData,
   setActiveId,
 }: Props) => {
@@ -65,7 +65,7 @@ const BlogContent = ({
       <Image src={hero.url} />
 
       <Title order={1}>{title}</Title>
-      <PublishedAtLabel publishedAt={publishedAt} updatedAt={updatedAt} />
+      <PublishedAtLabel publishedAt={publishedAt} revisedAt={revisedAt} />
       <Box>
         {categories.map(({ id, name }) => (
           <Badge key={id} sx={{ ml: 'md' }}>

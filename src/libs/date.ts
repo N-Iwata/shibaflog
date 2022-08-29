@@ -1,4 +1,11 @@
-import { format } from 'date-fns'
+import dayjs from 'dayjs'
+import timezone from 'dayjs/plugin/timezone'
+import utc from 'dayjs/plugin/utc'
 
-export const formatYearMonth = (date: string): string => format(new Date(date), 'yyyy_MM')
-export const formatYearMonthDay = (date: string): string => format(new Date(date), 'yyyy_MM_dd')
+dayjs.extend(utc)
+dayjs.extend(timezone)
+
+export const formatYearMonth = (date: string): string =>
+  dayjs.utc(date).tz('Asia/Tokyo').format('YYYY-MM')
+export const formatYearMonthDay = (date: string): string =>
+  dayjs.utc(date).tz('Asia/Tokyo').format('YYYY-MM-DD')
