@@ -29,7 +29,7 @@ const ArchiveId = ({ blog, month, categoryList, archiveList }: Props) => (
         [ {month} ] の記事一覧
       </Title>
       <Stack spacing='md'>
-        {blog.map(({ title, hero, categories, publishedAt, updatedAt, id }) => (
+        {blog.map(({ title, hero, categories, publishedAt, revisedAt, id }) => (
           <VerticalArticleCard
             key={id}
             id={id}
@@ -37,7 +37,7 @@ const ArchiveId = ({ blog, month, categoryList, archiveList }: Props) => (
             hero={hero}
             categories={categories}
             publishedAt={publishedAt}
-            updatedAt={updatedAt}
+            revisedAt={revisedAt}
           />
         ))}
       </Stack>

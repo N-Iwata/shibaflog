@@ -5,10 +5,10 @@ import { formatYearMonthDay } from '@shibaflog/libs/date'
 
 type Props = {
   publishedAt: string
-  updatedAt: string
+  revisedAt: string
 }
 
-const PublishedAtLabel = ({ publishedAt, updatedAt }: Props) => (
+const PublishedAtLabel = ({ publishedAt, revisedAt }: Props) => (
   <Group>
     <Group spacing={4}>
       <IconClock size={16} />
@@ -16,11 +16,11 @@ const PublishedAtLabel = ({ publishedAt, updatedAt }: Props) => (
         {formatYearMonthDay(publishedAt)}
       </Text>
     </Group>
-    {publishedAt < updatedAt && (
+    {publishedAt < revisedAt && (
       <Group spacing={4}>
         <IconRefresh size={16} />
         <Text size='sm' color='dimmed'>
-          {formatYearMonthDay(updatedAt)}
+          {formatYearMonthDay(revisedAt)}
         </Text>
       </Group>
     )}

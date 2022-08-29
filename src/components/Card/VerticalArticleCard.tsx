@@ -4,9 +4,9 @@ import Link from 'next/link'
 import PublishedAtLabel from '@shibaflog/components/PublishedAtLabel'
 import { Blog } from '@shibaflog/types'
 
-type Props = Pick<Blog, 'id' | 'title' | 'hero' | 'categories' | 'publishedAt' | 'updatedAt'>
+type Props = Pick<Blog, 'id' | 'title' | 'hero' | 'categories' | 'publishedAt' | 'revisedAt'>
 
-const VerticalArticleCard = ({ id, title, hero, categories, publishedAt, updatedAt }: Props) => (
+const VerticalArticleCard = ({ id, title, hero, categories, publishedAt, revisedAt }: Props) => (
   <Card withBorder radius='md' p={0} sx={{ cursor: 'pointer' }}>
     <Group noWrap spacing={0}>
       <Link href={`/blog/${id}`}>
@@ -27,7 +27,7 @@ const VerticalArticleCard = ({ id, title, hero, categories, publishedAt, updated
             <Title order={4} mt='xs' mb='md'>
               {title}
             </Title>
-            <PublishedAtLabel publishedAt={publishedAt} updatedAt={updatedAt} />
+            <PublishedAtLabel publishedAt={publishedAt} revisedAt={revisedAt} />
           </Box>
         </Box>
       </Link>
