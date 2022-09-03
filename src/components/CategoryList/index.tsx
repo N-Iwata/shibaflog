@@ -1,5 +1,5 @@
-import { Anchor, Box, Text, ThemeIcon, Title } from '@mantine/core'
-import { IconTag } from '@tabler/icons'
+import { Anchor, Box, Group, Text, ThemeIcon } from '@mantine/core'
+import { IconCategory, IconTag } from '@tabler/icons'
 import Link from 'next/link'
 
 import { Category } from '@shibaflog/types'
@@ -8,20 +8,19 @@ type Props = {
   categoryList: Category[]
 }
 const CategoryList = ({ categoryList }: Props) => (
-  <Box>
-    <Title
-      order={4}
-      sx={(theme) => ({
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.teal[2],
-        color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.gray[7],
-        padding: '4px 8px',
-        fontSize: 18,
-        textAlign: 'center',
-        borderRadius: 16,
-      })}
-    >
-      カテゴリー
-    </Title>
+  <Box
+    p='xs'
+    sx={(theme) => ({
+      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : 'white',
+      color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.gray[9],
+      borderRadius: 8,
+      border: `1px solid ${theme.colorScheme === 'dark' ? 'none' : theme.colors.gray[2]}`,
+    })}
+  >
+    <Group pl='sm'>
+      <IconCategory size={24} stroke={1.5} />
+      <Text sx={{ fontSize: 20 }}>Category</Text>
+    </Group>
 
     <Box mt={2} p='xs'>
       {categoryList.map(({ id, name }) => (
@@ -38,7 +37,7 @@ const CategoryList = ({ categoryList }: Props) => (
               textAlign: 'center',
               borderBottom:
                 theme.colorScheme === 'dark'
-                  ? `1px solid ${theme.colors.dark[5]}`
+                  ? `1px solid ${theme.colors.dark[3]}`
                   : `1px solid ${theme.colors.teal[2]}`,
               '&:hover': {
                 backgroundColor:

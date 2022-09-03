@@ -64,38 +64,49 @@ const BlogContent = ({
     <Stack spacing='md'>
       <Image src={hero.url} />
 
-      <Title order={1}>{title}</Title>
-      <PublishedAtLabel publishedAt={publishedAt} revisedAt={revisedAt} />
-      <Box>
-        {categories.map(({ id, name }) => (
-          <Badge key={id} sx={{ ml: 'md' }}>
-            {name}
-          </Badge>
-        ))}
-      </Box>
-      <Box
-        sx={{
-          '@media (min-width: 1000px)': {
-            display: 'none',
-          },
-        }}
-      >
-        <TableOfContents tocData={tocData} />
-      </Box>
-      <Box
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{
-          __html: `${body}`,
-        }}
-        sx={{
-          img: {
-            width: '100%',
-          },
-          'h2,h3,h4': { marginTop: -70, paddingTop: 70 },
-        }}
-      />
+      <Stack
+        spacing='md'
+        p='xs'
+        sx={(theme) => ({
+          backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : 'white',
+          color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.gray[9],
 
-      <Share title={title} id={id} />
+          borderRadius: 16,
+        })}
+      >
+        <Title order={1}>{title}</Title>
+        <PublishedAtLabel publishedAt={publishedAt} revisedAt={revisedAt} />
+        <Box>
+          {categories.map(({ id, name }) => (
+            <Badge key={id} sx={{ ml: 'md' }}>
+              {name}
+            </Badge>
+          ))}
+        </Box>
+        <Box
+          sx={{
+            '@media (min-width: 1000px)': {
+              display: 'none',
+            },
+          }}
+        >
+          <TableOfContents tocData={tocData} />
+        </Box>
+        <Box
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: `${body}`,
+          }}
+          sx={{
+            img: {
+              width: '100%',
+            },
+            'h2,h3,h4': { marginTop: -70, paddingTop: 70 },
+          }}
+        />
+
+        <Share title={title} id={id} />
+      </Stack>
     </Stack>
   )
 }

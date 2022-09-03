@@ -1,4 +1,5 @@
-import { Anchor, Box, Title } from '@mantine/core'
+import { Anchor, Box, Group, Text } from '@mantine/core'
+import { IconListSearch } from '@tabler/icons'
 import Link from 'next/link'
 
 import { Toc } from '@shibaflog/types'
@@ -9,20 +10,20 @@ type Props = {
 }
 
 const TableOfContents = ({ tocData, activeId }: Props) => (
-  <Box>
-    <Title
-      order={4}
-      sx={(theme) => ({
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.teal[2],
-        color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.gray[7],
-        padding: '4px 8px',
-        fontSize: 18,
-        textAlign: 'center',
-        borderRadius: 16,
-      })}
-    >
-      目次
-    </Title>
+  <Box
+    p='xs'
+    sx={(theme) => ({
+      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : 'white',
+      color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.gray[9],
+      position: 'sticky',
+      borderRadius: 8,
+      border: `1px solid ${theme.colorScheme === 'dark' ? 'none' : theme.colors.gray[2]}`,
+    })}
+  >
+    <Group pl='sm'>
+      <IconListSearch size={24} stroke={1.5} />
+      <Text sx={{ fontSize: 20 }}>Table of contents</Text>
+    </Group>
 
     <Box mt={2} p='xs'>
       {tocData.map(({ id, name, text }) => {

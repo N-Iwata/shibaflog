@@ -20,7 +20,7 @@ const Main = ({ children, categoryList, archiveList, tocData, activeId }: Props)
   const matches = true
   return (
     <Container sx={{ width: '100%', maxWidth: CONTENT_MAX_WIDTH, marginTop: CONTENT_TOP }}>
-      <Grid>
+      <Grid gutter={24}>
         <Grid.Col sm={12} md={8}>
           <Box component='main'>
             <Stack spacing='md'>{children}</Stack>
