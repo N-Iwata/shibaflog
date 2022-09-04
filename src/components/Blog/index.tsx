@@ -2,9 +2,9 @@ import { Dispatch, SetStateAction, useEffect } from 'react'
 
 import { Badge, Box, Image, Stack, Title } from '@mantine/core'
 
-import PublishedAtLabel from '@shibaflog/components/PublishedAtLabel'
 import { Blog, Toc } from '@shibaflog/types'
 
+import PublishedAtWithUpdatedAtLabel from '../PublishedAtLabel/PublishedAtWithUpdatedAtLabel'
 import Share from '../Share'
 import TableOfContents from '../TableOfContents'
 
@@ -75,7 +75,7 @@ const BlogContent = ({
         })}
       >
         <Title order={1}>{title}</Title>
-        <PublishedAtLabel publishedAt={publishedAt} revisedAt={revisedAt} />
+        <PublishedAtWithUpdatedAtLabel publishedAt={publishedAt} revisedAt={revisedAt} />
         <Box>
           {categories.map(({ id, name }) => (
             <Badge key={id} sx={{ ml: 'md' }}>

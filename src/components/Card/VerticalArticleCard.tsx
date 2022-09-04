@@ -1,7 +1,7 @@
 import { Badge, Box, Card, Group, Image, Title } from '@mantine/core'
 import Link from 'next/link'
 
-import PublishedAtLabel from '@shibaflog/components/PublishedAtLabel'
+import PublishedAtWithUpdatedAtLabel from '@shibaflog/components/PublishedAtLabel/PublishedAtWithUpdatedAtLabel'
 import { Blog } from '@shibaflog/types'
 
 type Props = Pick<Blog, 'id' | 'title' | 'hero' | 'categories' | 'publishedAt' | 'revisedAt'>
@@ -27,7 +27,7 @@ const VerticalArticleCard = ({ id, title, hero, categories, publishedAt, revised
             <Title order={4} mt='xs' mb='md'>
               {title}
             </Title>
-            <PublishedAtLabel publishedAt={publishedAt} revisedAt={revisedAt} />
+            <PublishedAtWithUpdatedAtLabel publishedAt={publishedAt} revisedAt={revisedAt} />
           </Box>
         </Box>
       </Link>

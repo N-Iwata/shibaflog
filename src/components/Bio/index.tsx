@@ -1,6 +1,8 @@
 import { Avatar, Box, Group, Space, Text } from '@mantine/core'
 import { IconUserCircle } from '@tabler/icons'
 
+import { AUTHER } from '@shibaflog/const/common'
+
 import TwitterFollowButton from '../Twitter/TwitterFollowButton'
 
 const Bio = () => (
@@ -20,7 +22,7 @@ const Bio = () => (
 
     <Group mt='md' pl='md'>
       <Avatar src='/avatar.png' alt="it's me" radius='xl' />
-      <Text>のふのふ🀄️</Text>
+      <Text>{AUTHER}</Text>
       <TwitterFollowButton href='https://twitter.com/rpf_nob' target='_blank'>
         Follow on Twitter
       </TwitterFollowButton>
