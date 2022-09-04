@@ -26,7 +26,7 @@ const CategoryList = ({ categoryList }: Props) => (
       {categoryList.map(({ id, name }) => (
         <Box
           component={NextLink}
-          href={`/archive/${id}`}
+          href={`/category/${id}`}
           key={id}
           sx={(theme) => ({
             ...theme.fn.focusStyles(),
