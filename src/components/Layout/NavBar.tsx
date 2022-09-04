@@ -12,8 +12,8 @@ const NavBar = () => {
     <Header
       height={HEADER_HEIGHT}
       sx={(theme) => ({
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.teal[2],
-        color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.gray[9],
+        backgroundColor: theme.colors.teal[2],
+        color: theme.colors.gray[9],
         position: 'sticky',
       })}
     >
@@ -24,7 +24,7 @@ const NavBar = () => {
           <Link href='/'>
             <Anchor
               sx={(theme) => ({
-                color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.gray[9],
+                color: theme.colors.gray[9],
                 cursor: 'pointer',
                 fontSize: 32,
                 fontWeight: 'bold',
@@ -41,21 +41,9 @@ const NavBar = () => {
           noWrap
           sx={{ alignItems: 'center', height: HEADER_HEIGHT }}
         >
-          {/* <a href='https://twitter.com/rpf_nob' target='_blank' rel='noopener noreferrer'>
-            <ActionIcon color='blue' sx={{ ':hover': { background: 'none' } }}>
-              <IconBrandTwitter />
-            </ActionIcon>
-          </a>
-
-          <a href='https://github.com/N-Iwata' target='_blank' rel='noopener noreferrer'>
-            <ActionIcon color='dark' sx={{ ':hover': { background: 'none' } }}>
-              <IconBrandGithub />
-            </ActionIcon>
-          </a> */}
-
           <ActionIcon
             color={dark ? 'yellow' : 'blue'}
-            sx={{ ':hover': { background: 'none' } }}
+            variant='outline'
             onClick={() => toggleColorScheme()}
           >
             {dark ? <IconSun /> : <IconMoon />}

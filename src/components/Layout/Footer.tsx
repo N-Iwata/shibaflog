@@ -7,8 +7,8 @@ const Footer = () => (
     component='footer'
     mt={60}
     sx={(theme) => ({
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.teal[2],
-      color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.gray[9],
+      backgroundColor: theme.colors.teal[2],
+      color: theme.colors.gray[9],
     })}
   >
     <Container
@@ -20,7 +20,12 @@ const Footer = () => (
         alignItems: 'center',
       }}
     >
-      <Text color='dimmed' size='sm'>
+      <Text
+        sx={(theme) => ({
+          color: theme.colors.gray[6],
+        })}
+        size='sm'
+      >
         ©2022 Shibaflog. All rights reserved.
       </Text>
     </Container>
