@@ -1,6 +1,6 @@
-import { Anchor, Box, Group, Text } from '@mantine/core'
+import { Box, Group, Text } from '@mantine/core'
+import { NextLink } from '@mantine/next'
 import { IconListSearch } from '@tabler/icons'
-import Link from 'next/link'
 
 import { Toc } from '@shibaflog/types'
 
@@ -30,40 +30,40 @@ const TableOfContents = ({ tocData, activeId }: Props) => (
         const indent = parseInt(name.replace('h', ''), 10)
 
         return (
-          <Link href={`#${id}`} key={id}>
-            <Anchor
-              sx={(theme) => ({
-                ...theme.fn.focusStyles(),
-                display: 'block',
-                paddingTop: theme.spacing.xs,
-                paddingBottom: theme.spacing.xs,
-                paddingLeft: (indent - 1) * theme.spacing.md,
-                color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.gray[7],
-                fontSize: theme.fontSizes.sm,
-                borderLeft: `1px solid ${
-                  activeId === id
-                    ? theme.colors.teal[5]
-                    : theme.colorScheme === 'dark'
-                    ? theme.colors.dark[4]
-                    : theme.colors.gray[3]
-                }`,
+          <Box
+            component={NextLink}
+            href={`#${id}`}
+            key={id}
+            sx={(theme) => ({
+              ...theme.fn.focusStyles(),
+              display: 'block',
+              paddingTop: theme.spacing.xs,
+              paddingBottom: theme.spacing.xs,
+              paddingLeft: (indent - 1) * theme.spacing.md,
+              color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.gray[7],
+              fontSize: theme.fontSizes.sm,
+              borderLeft: `1px solid ${
+                activeId === id
+                  ? theme.colors.teal[5]
+                  : theme.colorScheme === 'dark'
+                  ? theme.colors.dark[4]
+                  : theme.colors.gray[3]
+              }`,
+              backgroundColor:
+                activeId === id ? theme.fn.rgba(theme.colors.teal[6], 0.15) : 'transparent',
+              textDecoration: 'none',
+              '&:hover': {
                 backgroundColor:
-                  activeId === id ? theme.fn.rgba(theme.colors.teal[6], 0.15) : 'transparent',
-
-                '&:hover': {
-                  backgroundColor:
-                    activeId === id
-                      ? theme.fn.rgba(theme.colors.teal[4], 0.15)
-                      : theme.colorScheme === 'dark'
-                      ? theme.colors.dark[6]
-                      : theme.colors.gray[1],
-                  textDecoration: 'none',
-                },
-              })}
-            >
-              {text}
-            </Anchor>
-          </Link>
+                  activeId === id
+                    ? theme.fn.rgba(theme.colors.teal[4], 0.15)
+                    : theme.colorScheme === 'dark'
+                    ? theme.colors.dark[6]
+                    : theme.colors.gray[1],
+              },
+            })}
+          >
+            {text}
+          </Box>
         )
       })}
     </Box>

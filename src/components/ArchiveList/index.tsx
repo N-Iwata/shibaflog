@@ -1,6 +1,6 @@
-import { Anchor, Box, Group, Text, ThemeIcon } from '@mantine/core'
+import { Box, Group, Text, ThemeIcon } from '@mantine/core'
+import { NextLink } from '@mantine/next'
 import { IconArchive, IconCalendarStats } from '@tabler/icons'
-import Link from 'next/link'
 
 import { Archive } from '@shibaflog/types'
 
@@ -24,38 +24,39 @@ const ArchiveList = ({ archiveList }: Props) => (
 
     <Box mt={2} p='xs'>
       {Object.keys(archiveList).map((index) => (
-        <Link href={`/archive/${index}`} key={index}>
-          <Anchor
-            sx={(theme) => ({
-              ...theme.fn.focusStyles(),
-              display: 'block',
-              paddingTop: theme.spacing.xs,
-              paddingBottom: theme.spacing.xs,
-              paddingLeft: theme.spacing.xs,
-              color: 'teal',
-              fontSize: theme.fontSizes.sm,
-              textAlign: 'center',
-              borderBottom:
-                theme.colorScheme === 'dark'
-                  ? `1px solid ${theme.colors.dark[3]}`
-                  : `1px solid ${theme.colors.teal[2]}`,
-              '&:hover': {
-                backgroundColor:
-                  theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1],
-                textDecoration: 'none',
-              },
-            })}
-          >
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <ThemeIcon color='teal' size={24} radius='xl' mr='xs'>
-                <IconCalendarStats />
-              </ThemeIcon>
-              <Text>
-                {index}（{archiveList[index].length}）
-              </Text>
-            </Box>
-          </Anchor>
-        </Link>
+        <Box
+          component={NextLink}
+          href={`/archive/${index}`}
+          key={index}
+          sx={(theme) => ({
+            ...theme.fn.focusStyles(),
+            display: 'block',
+            paddingTop: theme.spacing.xs,
+            paddingBottom: theme.spacing.xs,
+            paddingLeft: theme.spacing.xs,
+            color: 'teal',
+            fontSize: theme.fontSizes.sm,
+            textAlign: 'center',
+            borderBottom:
+              theme.colorScheme === 'dark'
+                ? `1px solid ${theme.colors.dark[3]}`
+                : `1px solid ${theme.colors.teal[2]}`,
+            textDecoration: 'none',
+            '&:hover': {
+              backgroundColor:
+                theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1],
+            },
+          })}
+        >
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <ThemeIcon color='teal' size={24} radius='xl' mr='xs'>
+              <IconCalendarStats />
+            </ThemeIcon>
+            <Text>
+              {index}（{archiveList[index].length}）
+            </Text>
+          </Box>
+        </Box>
       ))}
     </Box>
   </Box>
