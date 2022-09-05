@@ -5,7 +5,7 @@ import { Badge, Box, Image, Stack, Title } from '@mantine/core'
 import { Blog, Toc } from '@shibaflog/types'
 
 import PublishedAtWithUpdatedAtLabel from '../PublishedAtLabel/PublishedAtWithUpdatedAtLabel'
-import Share from '../Share'
+import Share from '../Share/Share'
 import TableOfContents from '../TableOfContents'
 
 type Props = Pick<
