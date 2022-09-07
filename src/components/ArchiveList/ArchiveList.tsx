@@ -24,7 +24,7 @@ const ArchiveList = ({ archiveList }: Props) => (
 
     <Box mt={2} p='xs'>
       {Object.keys(archiveList).map((index) => (
-        <Link href={`/archive/${index}`} key={index}>
+        <Link href={`/archive/${index}`} key={index} passHref>
           <Anchor
             sx={(theme) => ({
               ...theme.fn.focusStyles(),
@@ -39,10 +39,10 @@ const ArchiveList = ({ archiveList }: Props) => (
                 theme.colorScheme === 'dark'
                   ? `1px solid ${theme.colors.dark[3]}`
                   : `1px solid ${theme.colors.teal[2]}`,
-              textDecoration: 'none',
               '&:hover': {
                 backgroundColor:
                   theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1],
+                textDecoration: 'none',
               },
             })}
           >

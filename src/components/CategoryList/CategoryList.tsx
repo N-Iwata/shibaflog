@@ -24,7 +24,7 @@ const CategoryList = ({ categoryList }: Props) => (
 
     <Box mt={2} p='xs'>
       {categoryList.map(({ id, name }) => (
-        <Link href={`/category/${id}`} key={id}>
+        <Link href={`/category/${id}`} key={id} passHref>
           <Anchor
             sx={(theme) => ({
               ...theme.fn.focusStyles(),
@@ -39,10 +39,10 @@ const CategoryList = ({ categoryList }: Props) => (
                 theme.colorScheme === 'dark'
                   ? `1px solid ${theme.colors.dark[3]}`
                   : `1px solid ${theme.colors.teal[2]}`,
-              textDecoration: 'none',
               '&:hover': {
                 backgroundColor:
                   theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1],
+                textDecoration: 'none',
               },
             })}
           >
