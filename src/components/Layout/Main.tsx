@@ -6,7 +6,7 @@ import { Archive, Category, Toc } from '@shibaflog/types'
 import ArchiveList from '../ArchiveList/ArchiveList'
 import Bio from '../Bio/Bio'
 import CategoryList from '../CategoryList/CategoryList'
-import TableOfContents from '../TableOfContents'
+import TableOfContents from '../TableOfContents/TableOfContents'
 
 type Props = {
   children: React.ReactNode

@@ -6,7 +6,7 @@ import { Blog, Toc } from '@shibaflog/types'
 
 import PublishedAtWithUpdatedAtLabel from '../PublishedAtLabel/PublishedAtWithUpdatedAtLabel'
 import Share from '../Share/Share'
-import TableOfContents from '../TableOfContents'
+import TableOfContents from '../TableOfContents/TableOfContents'
 
 type Props = Pick<
   Blog,
