@@ -3,10 +3,10 @@ import { Box, Container, Grid, Stack } from '@mantine/core'
 import { CONTENT_MAX_WIDTH, CONTENT_TOP } from '@shibaflog/const/size'
 import { Archive, Category, Toc } from '@shibaflog/types'
 
-import ArchiveList from '../ArchiveList'
-import Bio from '../Bio'
-import CategoryList from '../CategoryList'
-import TableOfContents from '../TableOfContents'
+import ArchiveList from '../ArchiveList/ArchiveList'
+import Bio from '../Bio/Bio'
+import CategoryList from '../CategoryList/CategoryList'
+import TableOfContents from '../TableOfContents/TableOfContents'
 
 type Props = {
   children: React.ReactNode

@@ -14,8 +14,8 @@ export type Category = {
   name: string
   createdAt: string
   updatedAt: string
-  publisheAt: string
-  revidsedAt: string
+  publishedAt: string
+  revisedAt: string
 }
 
 export type Hero = {

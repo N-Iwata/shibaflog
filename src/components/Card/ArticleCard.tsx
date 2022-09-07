@@ -1,5 +1,5 @@
-import { Avatar, Badge, Box, Card, Group, Image, Text } from '@mantine/core'
-import { NextLink } from '@mantine/next'
+import { Anchor, Avatar, Badge, Box, Card, Group, Image, Text } from '@mantine/core'
+import Link from 'next/link'
 
 import PublishedAtLabel from '@shibaflog/components/PublishedAtLabel/PublishedAtLabel'
 import { AUTHER } from '@shibaflog/const/common'
@@ -16,8 +16,12 @@ const ArticleCard = ({ id, title, hero, categories, publishedAt }: Props) => (
       position: 'relative',
     })}
   >
-    <Card.Section mb='sm' component={NextLink} href={`/blog/${id}`}>
-      <Image src={hero.url} />
+    <Card.Section mb='sm'>
+      <Link href={`/blog/${id}`} passHref>
+        <Anchor>
+          <Image src={hero.url} />
+        </Anchor>
+      </Link>
     </Card.Section>
 
     <Box px='xs' sx={(theme) => ({ position: 'absolute', top: theme.spacing.xs, right: 0 })}>
@@ -28,9 +32,11 @@ const ArticleCard = ({ id, title, hero, categories, publishedAt }: Props) => (
       ))}
     </Box>
 
-    <Text weight={500} component={NextLink} href={`/blog/${id}`}>
-      {title}
-    </Text>
+    <Link href={`/blog/${id}`} passHref>
+      <Text component='a' weight={500}>
+        {title}
+      </Text>
+    </Link>
 
     <Card.Section
       sx={(theme) => ({

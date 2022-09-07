@@ -1,8 +1,8 @@
-import { Stack, Title } from '@mantine/core'
+import { Grid, Title } from '@mantine/core'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Head from 'next/head'
 
-import VerticalArticleCard from '@shibaflog/components/Card/VerticalArticleCard'
+import ArticleCard from '@shibaflog/components/Card/ArticleCard'
 import Main from '@shibaflog/components/Layout/Main'
 import { getArchiveList } from '@shibaflog/libs/archive'
 import { client } from '@shibaflog/libs/client'
@@ -28,19 +28,19 @@ const ArchiveId = ({ blog, month, categoryList, archiveList }: Props) => (
       <Title order={3} mb='md'>
         [ {month} ] の記事一覧
       </Title>
-      <Stack spacing='md'>
-        {blog.map(({ title, hero, categories, publishedAt, revisedAt, id }) => (
-          <VerticalArticleCard
-            key={id}
-            id={id}
-            title={title}
-            hero={hero}
-            categories={categories}
-            publishedAt={publishedAt}
-            revisedAt={revisedAt}
-          />
+      <Grid gutter={16}>
+        {blog.map(({ title, hero, categories, publishedAt, id }) => (
+          <Grid.Col xs={12} sm={6} md={4} key={id}>
+            <ArticleCard
+              id={id}
+              title={title}
+              hero={hero}
+              categories={categories}
+              publishedAt={publishedAt}
+            />
+          </Grid.Col>
         ))}
-      </Stack>
+      </Grid>
     </Main>
   </>
 )
