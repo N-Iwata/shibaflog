@@ -11,7 +11,8 @@
     "lint:fmt": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
     "postinstall": "husky install",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",
@@ -44,6 +45,7 @@
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
     "babel-loader": "^8.2.5",
+    "chromatic": "^6.9.0",
     "eslint": "8.20.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -66,5 +68,7 @@
       "yarn lint:fix",
       "yarn lint:fmt"
     ]
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "shibaflog@0.1.0"
 }
