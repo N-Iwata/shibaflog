@@ -19,7 +19,7 @@ const ArticleCard = ({ id, title, hero, categories, publishedAt }: Props) => (
     <Card.Section mb='sm'>
       <Link href={`/blog/${id}`} passHref>
         <Box component='a'>
-          <Image src={hero.url} />
+          <Image src={hero.url} alt={title} />
         </Box>
       </Link>
     </Card.Section>
