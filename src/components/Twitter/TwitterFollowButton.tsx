@@ -4,8 +4,9 @@ import { IconBrandTwitter } from '@tabler/icons'
 const TwitterFollowButton = (props: ButtonProps & React.ComponentPropsWithoutRef<'a'>) => (
   <Button
     component='a'
-    leftIcon={<IconBrandTwitter size={20} color='#00ACEE' />}
+    leftIcon={<IconBrandTwitter size={20} color='teal' />}
     variant='light'
+    color='teal'
     {...props}
   />
 )

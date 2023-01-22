@@ -11,9 +11,7 @@ const PublishedAtLabel = ({ publishedAt }: Props) => (
   <Group>
     <Group spacing={4}>
       <IconClock size={16} />
-      <Text size='sm' color='dimmed'>
-        {formatYearMonthDay(publishedAt)}
-      </Text>
+      <Text size='sm'>{formatYearMonthDay(publishedAt)}</Text>
     </Group>
   </Group>
 )

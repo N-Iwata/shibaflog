@@ -12,16 +12,12 @@ const PublishedAtWithUpdatedAtLabel = ({ publishedAt, revisedAt }: Props) => (
   <Group>
     <Group spacing={4}>
       <IconClock size={16} />
-      <Text size='sm' color='dimmed'>
-        {formatYearMonthDay(publishedAt)}
-      </Text>
+      <Text size='sm'>{formatYearMonthDay(publishedAt)}</Text>
     </Group>
     {publishedAt < revisedAt && (
       <Group spacing={4}>
         <IconRefresh size={16} />
-        <Text size='sm' color='dimmed'>
-          {formatYearMonthDay(revisedAt)}
-        </Text>
+        <Text size='sm'>{formatYearMonthDay(revisedAt)}</Text>
       </Group>
     )}
   </Group>
