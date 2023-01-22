@@ -49,10 +49,7 @@
     ],
     "import/prefer-default-export": "off",
     "no-nested-ternary": "off",
-    "jsx-a11y/anchor-is-valid": "off",
-    "jsx-a11y/accessible-emoji": "off",
-    "jsx-a11y/html-has-lang": "off",
-    "jsx-a11y/media-has-caption": "off"
+    "no-plusplus": "off"
   },
   "overrides": [
     {
