@@ -12,11 +12,6 @@ export const formatYearMonth = (date: string): string =>
 export const formatYearMonthDay = (date: string): string =>
   dayjs.utc(date).tz('Asia/Tokyo').format('YYYY-MM-DD')
 
-export const getNowYearNumber = (): number => {
-  const now = new Date()
-  const nowYear = now.getFullYear()
-  return nowYear
-}
 export const getNowYearString = (): string => {
   const now = new Date()
   const nowYear = now.getFullYear()
@@ -25,16 +20,15 @@ export const getNowYearString = (): string => {
 
 export const getHeatMapYearList = (heatMapList: HeatMap[]) => {
   const startDate = heatMapList[0]?.date
-  const lastDate = heatMapList.at(-1)?.date
+  const nowDate = getNowYearString()
 
   if (!startDate) return null
-  if (!lastDate) return null
 
   const startYear = new Date(startDate).getFullYear()
-  const lastYear = new Date(lastDate).getFullYear()
+  const nowYear = new Date(nowDate).getFullYear()
 
   const list: { value: string; label: string }[] = []
-  for (let year = startYear; year <= lastYear; year++) {
+  for (let year = startYear; year <= nowYear; year++) {
     const stringYear = year.toString()
     list.push({ value: stringYear, label: stringYear })
   }
