@@ -1,4 +1,4 @@
-import { Anchor, Box, Group, Text, ThemeIcon } from '@mantine/core'
+import { Box, Group, Text, ThemeIcon } from '@mantine/core'
 import { IconCategory, IconTag } from '@tabler/icons'
 import Link from 'next/link'
 
@@ -25,7 +25,8 @@ const CategoryList = ({ categoryList }: Props) => (
     <Box mt={2} p='xs'>
       {categoryList.map(({ id, name }) => (
         <Link href={`/category/${id}`} key={id} passHref>
-          <Anchor
+          <Box
+            component='a'
             sx={(theme) => ({
               ...theme.fn.focusStyles(),
               display: 'block',
@@ -42,7 +43,6 @@ const CategoryList = ({ categoryList }: Props) => (
               '&:hover': {
                 backgroundColor:
                   theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1],
-                textDecoration: 'none',
               },
             })}
           >
@@ -52,7 +52,7 @@ const CategoryList = ({ categoryList }: Props) => (
               </ThemeIcon>
               <Text>{name}</Text>
             </Box>
-          </Anchor>
+          </Box>
         </Link>
       ))}
     </Box>

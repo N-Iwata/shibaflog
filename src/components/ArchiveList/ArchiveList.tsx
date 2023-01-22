@@ -1,4 +1,4 @@
-import { Anchor, Box, Group, Text, ThemeIcon } from '@mantine/core'
+import { Box, Group, Text, ThemeIcon } from '@mantine/core'
 import { IconArchive, IconCalendarStats } from '@tabler/icons'
 import Link from 'next/link'
 
@@ -25,7 +25,8 @@ const ArchiveList = ({ archiveList }: Props) => (
     <Box mt={2} p='xs'>
       {Object.keys(archiveList).map((index) => (
         <Link href={`/archive/${index}`} key={index} passHref>
-          <Anchor
+          <Box
+            component='a'
             sx={(theme) => ({
               ...theme.fn.focusStyles(),
               display: 'block',
@@ -42,8 +43,8 @@ const ArchiveList = ({ archiveList }: Props) => (
               '&:hover': {
                 backgroundColor:
                   theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1],
-                textDecoration: 'none',
               },
+              textDecoration: 'none',
             })}
           >
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -54,7 +55,7 @@ const ArchiveList = ({ archiveList }: Props) => (
                 {index}（{archiveList[index].length}）
               </Text>
             </Box>
-          </Anchor>
+          </Box>
         </Link>
       ))}
     </Box>
