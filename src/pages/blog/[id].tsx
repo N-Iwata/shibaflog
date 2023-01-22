@@ -7,16 +7,18 @@ import BlogContent from '@shibaflog/components/Blog'
 import Main from '@shibaflog/components/Layout/Main'
 import { getArchiveList } from '@shibaflog/libs/archive'
 import { client } from '@shibaflog/libs/client'
+import { getHeatMapList } from '@shibaflog/libs/heatMap'
 import { getTocData } from '@shibaflog/libs/tableOfContents'
-import { Archive, Blog, Category } from '@shibaflog/types'
+import { Archive, Blog, Category, HeatMap } from '@shibaflog/types'
 
 type Props = {
   blog: Blog
   categoryList: Category[]
   archiveList: Archive
+  heatMapList: HeatMap[]
 }
 
-const BlogId = ({ blog, categoryList, archiveList }: Props) => {
+const BlogId = ({ blog, categoryList, archiveList, heatMapList }: Props) => {
   const [activeId, setActiveId] = useState('')
   const { id, title, hero, revisedAt, publishedAt, body, categories } = blog
   const tocData = getTocData(body)
@@ -42,6 +44,7 @@ const BlogId = ({ blog, categoryList, archiveList }: Props) => {
       <Main
         categoryList={categoryList}
         archiveList={archiveList}
+        heatMapList={heatMapList}
         tocData={tocData}
         activeId={activeId}
       >
@@ -77,11 +80,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const blogData = await client.getListDetail<Blog>({ endpoint: 'blog', contentId: id })
   const categoryListData = await client.getList<Category>({ endpoint: 'categories' })
   const archiveListData = getArchiveList(allBlogData.contents)
+  const heatMapListData = getHeatMapList(allBlogData.contents)
+
   return {
     props: {
       blog: blogData,
       categoryList: categoryListData.contents,
       archiveList: archiveListData,
+      heatMapList: heatMapListData,
     },
   }
 }

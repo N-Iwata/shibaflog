@@ -6,15 +6,17 @@ import ArticleCard from '@shibaflog/components/Card/ArticleCard'
 import Main from '@shibaflog/components/Layout/Main'
 import { getArchiveList } from '@shibaflog/libs/archive'
 import { client } from '@shibaflog/libs/client'
-import { Blog, Category, Archive } from '@shibaflog/types'
+import { getHeatMapList } from '@shibaflog/libs/heatMap'
+import { Blog, Category, Archive, HeatMap } from '@shibaflog/types'
 
 type Props = {
   blog: Blog[]
   categoryList: Category[]
   archiveList: Archive
+  heatMapList: HeatMap[]
 }
 
-const Home = ({ blog, categoryList, archiveList }: Props) => (
+const Home = ({ blog, categoryList, archiveList, heatMapList }: Props) => (
   <>
     <Head>
       <title>Shibaflog | Home</title>
@@ -22,7 +24,7 @@ const Home = ({ blog, categoryList, archiveList }: Props) => (
       <link rel='icon' href='/favicon.ico' />
     </Head>
 
-    <Main categoryList={categoryList} archiveList={archiveList}>
+    <Main categoryList={categoryList} archiveList={archiveList} heatMapList={heatMapList}>
       <Grid gutter={16}>
         {blog.map(({ title, hero, categories, publishedAt, id }) => (
           <Grid.Col xs={12} sm={6} md={4} key={id}>
@@ -44,12 +46,14 @@ export const getStaticProps: GetStaticProps = async () => {
   const allBlogData = await client.getList<Blog>({ endpoint: 'blog', queries: { limit: 3000 } })
   const categoryListData = await client.getList<Category>({ endpoint: 'categories' })
   const archiveListData = getArchiveList(allBlogData.contents)
+  const heatMapListData = getHeatMapList(allBlogData.contents)
 
   return {
     props: {
       blog: allBlogData.contents,
       categoryList: categoryListData.contents,
       archiveList: archiveListData,
+      heatMapList: heatMapListData,
     },
   }
 }
