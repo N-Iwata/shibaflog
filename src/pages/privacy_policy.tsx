@@ -1,6 +1,7 @@
-import { Button, Group, Text, Title } from '@mantine/core'
+import { Box, Text, Title } from '@mantine/core'
 import { GetStaticProps } from 'next'
 
+import BackButton from '@shibaflog/components/BackButton/BackButton'
 import Main from '@shibaflog/components/Layout/Main'
 import Seo from '@shibaflog/components/SEO/Seo'
 import { getArchiveList } from '@shibaflog/libs/archive'
@@ -50,11 +51,9 @@ const PrivacyPolicy = ({ categoryList, archiveList }: Props) => (
         当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。
       </Text>
 
-      <Group position='center'>
-        <Button variant='subtle' size='md'>
-          HOME に戻る
-        </Button>
-      </Group>
+      <Box mt='md'>
+        <BackButton />
+      </Box>
     </Main>
   </>
 )

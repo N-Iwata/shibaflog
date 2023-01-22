@@ -1,6 +1,7 @@
-import { Button, Group, Title } from '@mantine/core'
+import { Box, Title } from '@mantine/core'
 import { GetStaticProps } from 'next'
 
+import BackButton from '@shibaflog/components/BackButton/BackButton'
 import Main from '@shibaflog/components/Layout/Main'
 import Seo from '@shibaflog/components/SEO/Seo'
 import { getArchiveList } from '@shibaflog/libs/archive'
@@ -47,11 +48,9 @@ const NotFound = ({ categoryList, archiveList }: Props) => (
         ページが見つかりませんでした...
       </Title>
 
-      <Group position='center'>
-        <Button variant='subtle' size='md'>
-          HOME に戻る
-        </Button>
-      </Group>
+      <Box mt='md'>
+        <BackButton />
+      </Box>
     </Main>
   </>
 )
