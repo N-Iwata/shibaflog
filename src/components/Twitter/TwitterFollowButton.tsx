@@ -5,7 +5,7 @@ const TwitterFollowButton = (props: ButtonProps & React.ComponentPropsWithoutRef
   <Button
     component='a'
     leftIcon={<IconBrandTwitter size={20} color='#00ACEE' />}
-    variant='light'
+    variant='outline'
     {...props}
   />
 )
