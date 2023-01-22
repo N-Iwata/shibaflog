@@ -54,7 +54,7 @@ const Heatmap = ({ heatMapList }: Props) => {
               backgroundColor: 'none',
             },
             '.react-calendar-heatmap .color-empty': {
-              fill: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[3],
+              fill: theme.colorScheme === 'dark' ? theme.colors.dark[3] : theme.colors.gray[3],
             },
             '.react-calendar-heatmap .color-scale-1': { fill: '#d6e685' },
             '.react-calendar-heatmap .color-scale-2': { fill: '#8cc665' },
