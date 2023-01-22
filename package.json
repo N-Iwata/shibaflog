@@ -11,6 +11,7 @@
     "lint:fix": "eslint --fix",
     "lint:fmt": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
     "postinstall": "husky install",
+    "postbuild": "next-sitemap",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "chromatic": "chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
@@ -60,6 +61,7 @@
     "eslint-plugin-storybook": "^0.6.4",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
+    "next-sitemap": "^3.1.47",
     "prettier": "^2.7.1",
     "storybook-addon-next-router": "^4.0.0",
     "storybook-addon-turbo-build": "^1.1.0",
