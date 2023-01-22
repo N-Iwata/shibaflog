@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "lint:fmt": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
@@ -69,7 +70,8 @@
   "lint-staged": {
     "*.{js,ts,tsx}": [
       "yarn lint:fix",
-      "yarn lint:fmt"
+      "yarn lint:fmt",
+      "yarn typecheck"
     ]
   },
   "readme": "ERROR: No README data found!",
