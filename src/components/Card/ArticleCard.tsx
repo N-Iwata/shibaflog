@@ -1,4 +1,4 @@
-import { Anchor, Avatar, Badge, Box, Card, Group, Image, Text } from '@mantine/core'
+import { Avatar, Badge, Box, Card, Group, Image, Text } from '@mantine/core'
 import Link from 'next/link'
 
 import PublishedAtLabel from '@shibaflog/components/PublishedAtLabel/PublishedAtLabel'
@@ -18,9 +18,9 @@ const ArticleCard = ({ id, title, hero, categories, publishedAt }: Props) => (
   >
     <Card.Section mb='sm'>
       <Link href={`/blog/${id}`} passHref>
-        <Anchor>
+        <Box component='a'>
           <Image src={hero.url} />
-        </Anchor>
+        </Box>
       </Link>
     </Card.Section>
 

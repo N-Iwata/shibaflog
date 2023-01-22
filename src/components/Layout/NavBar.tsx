@@ -1,4 +1,4 @@
-import { ActionIcon, Anchor, Container, Group, Header, useMantineColorScheme } from '@mantine/core'
+import { ActionIcon, Box, Container, Group, Header, useMantineColorScheme } from '@mantine/core'
 import { IconMoon, IconSun } from '@tabler/icons'
 import Link from 'next/link'
 
@@ -22,7 +22,8 @@ const NavBar = () => {
       >
         <Group>
           <Link href='/'>
-            <Anchor
+            <Box
+              component='a'
               sx={(theme) => ({
                 color: theme.colors.gray[9],
                 cursor: 'pointer',
@@ -32,7 +33,7 @@ const NavBar = () => {
               })}
             >
               Shibaflog
-            </Anchor>
+            </Box>
           </Link>
         </Group>
         <Group

@@ -1,4 +1,4 @@
-import { Anchor, Box, Group, Text } from '@mantine/core'
+import { Box, Group, Text } from '@mantine/core'
 import { IconListSearch } from '@tabler/icons'
 import Link from 'next/link'
 
@@ -31,7 +31,8 @@ const TableOfContents = ({ tocData, activeId }: Props) => (
 
         return (
           <Link href={`#${id}`} key={id} passHref>
-            <Anchor
+            <Box
+              component='a'
               sx={(theme) => ({
                 ...theme.fn.focusStyles(),
                 display: 'block',
@@ -56,12 +57,12 @@ const TableOfContents = ({ tocData, activeId }: Props) => (
                       : theme.colorScheme === 'dark'
                       ? theme.colors.dark[6]
                       : theme.colors.gray[1],
-                  textDecoration: 'none',
                 },
+                textDecoration: 'none',
               })}
             >
               {text}
-            </Anchor>
+            </Box>
           </Link>
         )
       })}
