@@ -21,7 +21,7 @@ const NavBar = () => {
         sx={{ display: 'flex', justifyContent: 'space-between', maxWidth: CONTENT_MAX_WIDTH }}
       >
         <Group>
-          <Link href='/'>
+          <Link href='/' passHref>
             <Box
               component='a'
               sx={(theme) => ({
@@ -30,6 +30,7 @@ const NavBar = () => {
                 fontSize: 32,
                 fontWeight: 'bold',
                 ':hover': { textDecoration: 'none' },
+                textDecoration: 'none',
               })}
             >
               Shibaflog
@@ -43,6 +44,7 @@ const NavBar = () => {
           sx={{ alignItems: 'center', height: HEADER_HEIGHT }}
         >
           <ActionIcon
+            aria-label='Name'
             color={dark ? 'yellow' : 'blue'}
             variant='outline'
             onClick={() => toggleColorScheme()}
