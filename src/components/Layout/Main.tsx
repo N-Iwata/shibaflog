@@ -13,7 +13,7 @@ type Props = {
   children: React.ReactNode
   categoryList: Category[]
   archiveList: Archive
-  heatMapList: HeatMap[]
+  heatMapList?: HeatMap[]
   tocData?: Toc[]
   activeId?: string
 }
@@ -27,7 +27,7 @@ const Main = ({ children, categoryList, archiveList, heatMapList, tocData, activ
           <Box component='main'>
             <Stack spacing='md'>
               {children}
-              <Heatmap heatMapList={heatMapList} />
+              {heatMapList && <Heatmap heatMapList={heatMapList} />}
             </Stack>
           </Box>
         </Grid.Col>
