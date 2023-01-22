@@ -21,7 +21,7 @@ const CategoryId = ({ blog, categoryDetail, categoryList, archiveList, heatMapLi
   <>
     <Seo title={categoryDetail.name} description='Category page' />
     <Main categoryList={categoryList} archiveList={archiveList} heatMapList={heatMapList}>
-      <Title order={3} mb='md'>
+      <Title order={2} mb='md'>
         {blog.length
           ? `[ ${categoryDetail.name} ] カテゴリの記事一覧`
           : `[ ${categoryDetail.name} ] カテゴリの記事がありません`}

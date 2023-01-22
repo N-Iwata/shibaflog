@@ -22,7 +22,7 @@ const ArchiveId = ({ blog, month, categoryList, archiveList, heatMapList }: Prop
   <>
     <Seo title={month} description='Monthly archive page' />
     <Main categoryList={categoryList} archiveList={archiveList} heatMapList={heatMapList}>
-      <Title order={3} mb='md'>
+      <Title order={2} mb='md'>
         [ {month} ] の記事一覧
       </Title>
       <Grid gutter={16}>

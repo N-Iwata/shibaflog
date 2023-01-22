@@ -1,4 +1,5 @@
-import { Box, Container, Text } from '@mantine/core'
+import { Anchor, Box, Container, Group, Text } from '@mantine/core'
+import Link from 'next/link'
 
 import { CONTENT_MAX_WIDTH, FOOTER_HEIGHT } from '@shibaflog/const/size'
 
@@ -20,14 +21,27 @@ const Footer = () => (
         alignItems: 'center',
       }}
     >
-      <Text
-        sx={(theme) => ({
-          color: theme.colors.gray[6],
-        })}
-        size='sm'
-      >
-        ©2022 Shibaflog. All rights reserved.
-      </Text>
+      <Group>
+        <Text
+          sx={(theme) => ({
+            color: theme.colors.gray[7],
+          })}
+          size='sm'
+        >
+          ©2022 Shibaflog. All rights reserved.
+        </Text>
+
+        <Link href='/privacy_policy' passHref>
+          <Anchor
+            sx={(theme) => ({
+              color: theme.colors.gray[7],
+            })}
+            size='sm'
+          >
+            Privacy policy
+          </Anchor>
+        </Link>
+      </Group>
     </Container>
   </Box>
 )
