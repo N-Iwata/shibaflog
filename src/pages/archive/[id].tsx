@@ -7,16 +7,18 @@ import Main from '@shibaflog/components/Layout/Main'
 import { getArchiveList } from '@shibaflog/libs/archive'
 import { client } from '@shibaflog/libs/client'
 import { formatYearMonth } from '@shibaflog/libs/date'
-import { Blog, Category, Archive } from '@shibaflog/types'
+import { getHeatMapList } from '@shibaflog/libs/heatMap'
+import { Blog, Category, Archive, HeatMap } from '@shibaflog/types'
 
 type Props = {
   blog: Blog[]
   month: string
   categoryList: Category[]
   archiveList: Archive
+  heatMapList: HeatMap[]
 }
 
-const ArchiveId = ({ blog, month, categoryList, archiveList }: Props) => (
+const ArchiveId = ({ blog, month, categoryList, archiveList, heatMapList }: Props) => (
   <>
     <Head>
       <title>{`Shibaflog | ${month}`}</title>
@@ -24,7 +26,7 @@ const ArchiveId = ({ blog, month, categoryList, archiveList }: Props) => (
       <link rel='icon' href='/favicon.ico' />
     </Head>
 
-    <Main categoryList={categoryList} archiveList={archiveList}>
+    <Main categoryList={categoryList} archiveList={archiveList} heatMapList={heatMapList}>
       <Title order={3} mb='md'>
         [ {month} ] の記事一覧
       </Title>
@@ -69,6 +71,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const categoryListData = await client.getList<Category>({ endpoint: 'categories' })
   const archiveListData = getArchiveList(allBlogData.contents)
+  const heatMapListData = getHeatMapList(allBlogData.contents)
 
   return {
     props: {
@@ -76,6 +79,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       month,
       categoryList: categoryListData.contents,
       archiveList: archiveListData,
+      heatMapList: heatMapListData,
     },
   }
 }

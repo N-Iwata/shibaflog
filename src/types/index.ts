@@ -28,6 +28,11 @@ export type Archive = {
   [month: string]: Blog[]
 }
 
+export type HeatMap = {
+  date: string
+  count: number
+}
+
 export type Toc = {
   text: string
   id: string
