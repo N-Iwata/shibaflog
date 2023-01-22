@@ -14,7 +14,7 @@ const Seo = ({ title, description, image }: Props) => (
   <Head>
     <title>{`Shibaflog | ${title}`}</title>
     <meta name='description' content={description} />
-    <meta property='og:title' content={title} />
+    <meta property='og:title' content={`Shibaflog | ${title}`} />
     <meta property='og:description' content={description} />
     <meta property='og:image' content={image || `${ROOT_URL}ogp.png`} />
     <meta name='twitter:card' content='summary_large_image' />
