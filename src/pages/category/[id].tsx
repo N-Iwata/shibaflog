@@ -6,21 +6,19 @@ import Main from '@shibaflog/components/Layout/Main'
 import Seo from '@shibaflog/components/SEO/Seo'
 import { getArchiveList } from '@shibaflog/libs/archive'
 import { client } from '@shibaflog/libs/client'
-import { getHeatMapList } from '@shibaflog/libs/heatMap'
-import { Blog, Category, Archive, HeatMap } from '@shibaflog/types'
+import { Blog, Category, Archive } from '@shibaflog/types'
 
 type Props = {
   blog: Blog[]
   categoryDetail: Category
   categoryList: Category[]
   archiveList: Archive
-  heatMapList: HeatMap[]
 }
 
-const CategoryId = ({ blog, categoryDetail, categoryList, archiveList, heatMapList }: Props) => (
+const CategoryId = ({ blog, categoryDetail, categoryList, archiveList }: Props) => (
   <>
     <Seo title={categoryDetail.name} description='Category page' />
-    <Main categoryList={categoryList} archiveList={archiveList} heatMapList={heatMapList}>
+    <Main categoryList={categoryList} archiveList={archiveList}>
       <Title order={2} mb='md'>
         {blog.length
           ? `[ ${categoryDetail.name} ] カテゴリの記事一覧`
@@ -67,7 +65,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   })
   const categoryListData = await client.getList<Category>({ endpoint: 'categories' })
   const archiveListData = getArchiveList(allBlogData.contents)
-  const heatMapListData = getHeatMapList(allBlogData.contents)
 
   return {
     props: {
@@ -75,7 +72,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       categoryDetail: categoryDetailData,
       categoryList: categoryListData.contents,
       archiveList: archiveListData,
-      heatMapList: heatMapListData,
     },
   }
 }

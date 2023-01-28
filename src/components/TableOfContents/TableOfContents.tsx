@@ -1,4 +1,4 @@
-import { Box, Group, Text } from '@mantine/core'
+import { Box, Group, Title } from '@mantine/core'
 import { IconListSearch } from '@tabler/icons'
 import Link from 'next/link'
 
@@ -22,7 +22,9 @@ const TableOfContents = ({ tocData, activeId }: Props) => (
   >
     <Group pl='sm'>
       <IconListSearch size={24} stroke={1.5} />
-      <Text sx={{ fontSize: 20 }}>Table of contents</Text>
+      <Title sx={{ fontSize: 20 }} order={2}>
+        Table of contents
+      </Title>
     </Group>
 
     <Box mt={2} p='xs'>
