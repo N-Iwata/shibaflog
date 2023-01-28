@@ -62,7 +62,7 @@ const BlogContent = ({
 
   return (
     <Stack spacing='md'>
-      <Image src={hero.url} />
+      <Image src={hero.url} alt='blog pageのhero画像' />
 
       <Stack
         spacing='md'
