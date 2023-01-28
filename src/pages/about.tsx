@@ -23,9 +23,7 @@ const About = ({ categoryList, archiveList, heatMapList }: Props) => (
         About
       </Title>
 
-      <Title order={3} mb='md'>
-        のふのふについて
-      </Title>
+      <Title order={3}>のふのふについて</Title>
       <Text component='p' sx={{ marginTop: 0 }}>
         はじめまして、のふのふと申します。
         都内のスタートアップ企業でソフトウェアエンジニアをしています。
@@ -34,9 +32,7 @@ const About = ({ categoryList, archiveList, heatMapList }: Props) => (
         名古屋市出身で埼玉県三郷市に移住して妻と娘の3人で暮らしています。
       </Text>
 
-      <Title order={3} mb='md'>
-        このブログについて
-      </Title>
+      <Title order={3}>このブログについて</Title>
       <Text component='p' sx={{ marginTop: 0 }}>
         趣味程度ですが自宅の庭の芝生を管理しているので、その様子をメモとして記事に書いておきたいと思います。読んでいただいた方の何かしらの参考になれば幸いです。
         <br />
