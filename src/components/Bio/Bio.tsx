@@ -1,4 +1,4 @@
-import { Avatar, Box, Group, Space, Text, Title } from '@mantine/core'
+import { Avatar, Box, Group, Text, Title } from '@mantine/core'
 import { IconUserCircle } from '@tabler/icons'
 
 import { AUTHER } from '@shibaflog/const/common'
@@ -32,8 +32,6 @@ const Bio = () => (
 
     <Text my='md' mx='xs' pl='md' sx={{ fontSize: 14 }}>
       芝生管理が趣味のフロントエンドエンジニアです。
-      <Space h='md' />
-      埼玉県内の自宅で芝生を管理しているので、 その様子を記事に書いてお伝えできたらと思います。
     </Text>
   </Box>
 )

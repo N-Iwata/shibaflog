@@ -41,6 +41,16 @@ const Footer = () => (
             Privacy policy
           </Anchor>
         </Link>
+        <Link href='/about' passHref>
+          <Anchor
+            sx={(theme) => ({
+              color: theme.colors.gray[7],
+            })}
+            size='sm'
+          >
+            About
+          </Anchor>
+        </Link>
       </Group>
     </Container>
   </Box>
