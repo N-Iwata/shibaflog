@@ -6,14 +6,12 @@ import Main from '@shibaflog/components/Layout/Main'
 import Seo from '@shibaflog/components/SEO/Seo'
 import { getArchiveList } from '@shibaflog/libs/archive'
 import { client } from '@shibaflog/libs/client'
-// import { getHeatMapList } from '@shibaflog/libs/heatMap'
 import { Blog, Category, Archive } from '@shibaflog/types'
 
 type Props = {
   blog: Blog[]
   categoryList: Category[]
   archiveList: Archive
-  // heatMapList: HeatMap[]
 }
 
 const Home = ({ blog, categoryList, archiveList }: Props) => (
@@ -41,14 +39,12 @@ export const getStaticProps: GetStaticProps = async () => {
   const allBlogData = await client.getList<Blog>({ endpoint: 'blog', queries: { limit: 3000 } })
   const categoryListData = await client.getList<Category>({ endpoint: 'categories' })
   const archiveListData = getArchiveList(allBlogData.contents)
-  // const heatMapListData = getHeatMapList(allBlogData.contents)
 
   return {
     props: {
       blog: allBlogData.contents,
       categoryList: categoryListData.contents,
       archiveList: archiveListData,
-      // heatMapList: heatMapListData,
     },
   }
 }
