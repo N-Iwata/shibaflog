@@ -1,4 +1,4 @@
-import { Box, Group, Text, ThemeIcon } from '@mantine/core'
+import { Box, Group, Text, ThemeIcon, Title } from '@mantine/core'
 import { IconArchive, IconCalendarStats } from '@tabler/icons'
 import Link from 'next/link'
 
@@ -19,7 +19,9 @@ const ArchiveList = ({ archiveList }: Props) => (
   >
     <Group pl='sm'>
       <IconArchive size={24} stroke={1.5} />
-      <Text sx={{ fontSize: 20 }}>Monthly archive</Text>
+      <Title sx={{ fontSize: 20 }} order={2}>
+        Monthly archive
+      </Title>
     </Group>
 
     <Box mt={2} p='xs'>

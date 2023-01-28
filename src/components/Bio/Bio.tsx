@@ -1,4 +1,4 @@
-import { Avatar, Box, Group, Space, Text } from '@mantine/core'
+import { Avatar, Box, Group, Space, Text, Title } from '@mantine/core'
 import { IconUserCircle } from '@tabler/icons'
 
 import { AUTHER } from '@shibaflog/const/common'
@@ -17,7 +17,9 @@ const Bio = () => (
   >
     <Group pl='sm'>
       <IconUserCircle size={24} stroke={1.5} />
-      <Text sx={{ fontSize: 20 }}>Profile</Text>
+      <Title sx={{ fontSize: 20 }} order={2}>
+        Profile
+      </Title>
     </Group>
 
     <Group mt='md' pl='md'>

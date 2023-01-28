@@ -19,7 +19,7 @@ export const getNowYearString = (): string => {
 }
 
 export const getHeatMapYearList = (heatMapList: HeatMap[]) => {
-  const startDate = heatMapList[0]?.date
+  const startDate = heatMapList.at(-1)?.date
   const nowDate = getNowYearString()
 
   if (!startDate) return null

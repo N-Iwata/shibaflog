@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
-import { Box, Group, Select, Text } from '@mantine/core'
+import { Box, Group, Select, Title } from '@mantine/core'
 import { IconChartDots } from '@tabler/icons'
 import CalendarHeatmap from 'react-calendar-heatmap'
-import ReactTooltip from 'react-tooltip'
+// import ReactTooltip from 'react-tooltip'
 
 import { getHeatMapYearList, getNowYearString } from '@shibaflog/libs/date'
 import { HeatMap } from '@shibaflog/types'
@@ -30,7 +30,9 @@ const Heatmap = ({ heatMapList }: Props) => {
     >
       <Group pl='sm'>
         <IconChartDots size={24} stroke={1.5} />
-        <Text sx={{ fontSize: 20 }}>Contributions</Text>
+        <Title sx={{ fontSize: 20 }} order={2}>
+          Contributions
+        </Title>
       </Group>
 
       <Box mt={2} p='xs'>
@@ -76,7 +78,7 @@ const Heatmap = ({ heatMapList }: Props) => {
               }
             }}
           />
-          <ReactTooltip />
+          {/* <ReactTooltip /> */}
         </Box>
       </Box>
     </Box>
