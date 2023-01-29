@@ -7,7 +7,7 @@ import { Blog } from '@shibaflog/types'
 type Props = Pick<Blog, 'id' | 'title'>
 
 const Share = ({ id, title }: Props) => {
-  const articleTitle = `${title} #Shibaflog @rpf_nob より`
+  const articleTitle = `${title} #SHIBAFLOG @rpf_nob より`
   const articleUrl = `${ROOT_URL}blog/${id}`
   const iconSize = 48
 

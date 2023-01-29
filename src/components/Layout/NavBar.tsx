@@ -1,5 +1,14 @@
-import { ActionIcon, Box, Container, Group, Header, useMantineColorScheme } from '@mantine/core'
+import {
+  ActionIcon,
+  Box,
+  Container,
+  Group,
+  Header,
+  Title,
+  useMantineColorScheme,
+} from '@mantine/core'
 import { IconMoon, IconSun } from '@tabler/icons'
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { CONTENT_MAX_WIDTH, HEADER_HEIGHT } from '@shibaflog/const/size'
@@ -18,24 +27,44 @@ const NavBar = () => {
       })}
     >
       <Container
-        sx={{ display: 'flex', justifyContent: 'space-between', maxWidth: CONTENT_MAX_WIDTH }}
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          maxWidth: CONTENT_MAX_WIDTH,
+          alignItems: 'center',
+        }}
       >
         <Group>
-          <Link href='/' passHref>
-            <Box
-              component='a'
-              sx={(theme) => ({
-                color: theme.colors.gray[9],
-                cursor: 'pointer',
-                fontSize: 32,
-                fontWeight: 'bold',
-                ':hover': { textDecoration: 'none' },
-                textDecoration: 'none',
-              })}
-            >
-              Shibaflog
-            </Box>
-          </Link>
+          <Title order={1}>
+            <Link href='/' passHref>
+              <Box
+                component='a'
+                sx={(theme) => ({
+                  color: theme.colors.gray[9],
+                  cursor: 'pointer',
+                  fontSize: 32,
+                  fontWeight: 'bold',
+                  ':hover': { textDecoration: 'none' },
+                  textDecoration: 'none',
+                  verticalAlign: 'middle',
+                })}
+              >
+                <Box sx={{ display: 'inline-flex', alignItems: 'center' }}>
+                  <Image
+                    src='/favicon.ico'
+                    alt='Shibaflogのロゴ画像'
+                    height={32}
+                    width={32}
+                    style={{ verticalAlign: 'middle' }}
+                  />
+                  SHIBA
+                  <Box component='span' sx={{ color: 'teal' }}>
+                    FLOG
+                  </Box>
+                </Box>
+              </Box>
+            </Link>
+          </Title>
         </Group>
         <Group
           spacing='md'

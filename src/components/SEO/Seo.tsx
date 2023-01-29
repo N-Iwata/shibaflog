@@ -12,9 +12,9 @@ type Props = {
 
 const Seo = ({ title, description, image }: Props) => (
   <Head>
-    <title>{`${title} | Shibaflog`}</title>
+    <title>{`${title} | SHIBAFLOG`}</title>
     <meta name='description' content={description} />
-    <meta property='og:title' content={`${title} | Shibaflog`} />
+    <meta property='og:title' content={`${title} | SHIBAFLOG`} />
     <meta property='og:description' content={description} />
     <meta property='og:image' content={image || `${ROOT_URL}ogp.png`} />
     <meta name='twitter:card' content='summary_large_image' />
