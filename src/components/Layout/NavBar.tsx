@@ -5,10 +5,10 @@ import {
   Group,
   Header,
   Title,
+  Image,
   useMantineColorScheme,
 } from '@mantine/core'
 import { IconMoon, IconSun } from '@tabler/icons'
-import Image from 'next/image'
 import Link from 'next/link'
 
 import { CONTENT_MAX_WIDTH, HEADER_HEIGHT } from '@shibaflog/const/size'
