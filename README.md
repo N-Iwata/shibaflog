@@ -12,5 +12,5 @@
 - TypeScript
 - Mantine UI
 - microCMS
-- chromatic
-- vercel
+- Chromatic
+- Netlify

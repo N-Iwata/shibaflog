@@ -1,1 +1,1 @@
-export const ROOT_URL = 'https://shibaflog.vercel.app/'
+export const ROOT_URL = 'https://shibaflog.netlify.app/'
