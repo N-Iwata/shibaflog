@@ -1,0 +1,3 @@
+http://shibaflog.netlify.app/*  https://shibaflog.com/:splat  301!
+https://shibaflog.netlify.app/*  https://shibaflog.com/:splat  301!
+http://shibaflog.com/*  https://shibaflog.com/:splat  301!

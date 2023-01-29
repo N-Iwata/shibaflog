@@ -1,1 +1,1 @@
-export const ROOT_URL = 'https://shibaflog.netlify.app/'
+export const ROOT_URL = 'https://shibaflog.com/'
