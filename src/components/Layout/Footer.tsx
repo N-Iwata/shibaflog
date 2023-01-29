@@ -28,7 +28,7 @@ const Footer = () => (
           })}
           size='sm'
         >
-          ©2022 Shibaflog. All rights reserved.
+          ©2022 SHIBAFLOG. All rights reserved.
         </Text>
 
         <Link href='/privacy_policy' passHref>
