@@ -37,7 +37,7 @@ const About = ({ categoryList, archiveList, heatMapList }: Props) => (
         趣味程度ですが自宅の庭の芝生を管理しているので、その様子をメモとして記事に書いておきたいと思います。読んでいただいた方の何かしらの参考になれば幸いです。
         <br />
         <br />
-        このブログは Next.js / TypeScript / microCMS / Vercel
+        このブログは Next.js / TypeScript / Mantine UI / microCMS / Netlify
         を使用して、JamStackを素振りするためにのふのふが作成しました。
         何か問題や不具合等ございましたら、TwitterのDMや
         <Anchor href='https://github.com/N-Iwata/shibaflog'>GitHubのIssues</Anchor>
