@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: 'https://shibaflog.netlify.app',
+  siteUrl: 'https://shibaflog.com',
   generateRobotsTxt: true,
 }
