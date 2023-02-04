@@ -31,7 +31,7 @@ const Bio = () => (
     </Group>
 
     <Text my='md' mx='xs' pl='md' sx={{ fontSize: 14 }}>
-      芝生管理が趣味のフロントエンドエンジニアです。
+      芝生管理が趣味のソフトウェアエンジニアです。
     </Text>
   </Box>
 )
