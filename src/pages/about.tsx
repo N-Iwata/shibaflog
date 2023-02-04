@@ -1,4 +1,4 @@
-import { Anchor, Box, Text, Title } from '@mantine/core'
+import { Anchor, Box, Image, Text, Title } from '@mantine/core'
 import { GetStaticProps } from 'next'
 
 import BackButton from '@shibaflog/components/BackButton/BackButton'
@@ -27,8 +27,6 @@ const About = ({ categoryList, archiveList, heatMapList }: Props) => (
       <Text component='p' sx={{ marginTop: 0 }}>
         はじめまして、のふのふと申します。
         都内のスタートアップ企業でソフトウェアエンジニアをしています。
-        <br />
-        <br />
         名古屋市出身で埼玉県三郷市に移住して妻と娘の3人で暮らしています。
       </Text>
 
@@ -38,12 +36,13 @@ const About = ({ categoryList, archiveList, heatMapList }: Props) => (
         <br />
         <br />
         このブログは Next.js / TypeScript / Mantine UI / microCMS / Netlify
-        を使用して、JamStackを素振りするためにのふのふが作成しました。
+        を使用して、JamStack構成を素振りするためにのふのふが作成しました。
         何か問題や不具合等ございましたら、TwitterのDMや
         <Anchor href='https://github.com/N-Iwata/shibaflog'>GitHubのIssues</Anchor>
         などでご連絡いただけますと幸いです。
       </Text>
 
+      <Image src='/about.png' alt='芝生の写真' />
       <Box mt='md'>
         <BackButton />
       </Box>
