@@ -19,6 +19,6 @@
       "@shibaflog/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/libs/gtag.js"],
   "exclude": ["node_modules"]
 }
