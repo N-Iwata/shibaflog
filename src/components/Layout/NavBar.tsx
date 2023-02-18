@@ -4,7 +4,6 @@ import {
   Container,
   Group,
   Header,
-  Title,
   Image,
   useMantineColorScheme,
 } from '@mantine/core'
@@ -35,36 +34,36 @@ const NavBar = () => {
         }}
       >
         <Group>
-          <Title order={1}>
-            <Link href='/' passHref>
-              <Box
-                component='a'
-                sx={(theme) => ({
-                  color: theme.colors.gray[9],
-                  cursor: 'pointer',
-                  fontSize: 32,
-                  fontWeight: 'bold',
-                  ':hover': { textDecoration: 'none' },
-                  textDecoration: 'none',
-                  verticalAlign: 'middle',
-                })}
-              >
-                <Box sx={{ display: 'inline-flex', alignItems: 'center' }}>
-                  <Image
-                    src='/favicon.ico'
-                    alt='Shibaflogのロゴ画像'
-                    height={32}
-                    width={32}
-                    style={{ verticalAlign: 'middle' }}
-                  />
+          <Link href='/' passHref>
+            <Box
+              component='a'
+              sx={(theme) => ({
+                color: theme.colors.gray[9],
+                cursor: 'pointer',
+                fontSize: 32,
+                fontWeight: 'bold',
+                ':hover': { textDecoration: 'none' },
+                textDecoration: 'none',
+                verticalAlign: 'middle',
+              })}
+            >
+              <Box sx={{ display: 'inline-flex', alignItems: 'center' }}>
+                <Image
+                  src='/favicon/favicon.ico'
+                  alt='Shibaflogのロゴ画像'
+                  height={32}
+                  width={32}
+                  style={{ verticalAlign: 'middle' }}
+                />
+                <Box component='span' ml='xs'>
                   SHIBA
-                  <Box component='span' sx={{ color: 'teal' }}>
-                    FLOG
-                  </Box>
+                </Box>
+                <Box component='span' sx={{ color: 'teal' }}>
+                  FLOG
                 </Box>
               </Box>
-            </Link>
-          </Title>
+            </Box>
+          </Link>
         </Group>
         <Group
           spacing='md'
