@@ -25,7 +25,7 @@ const ArchiveId = ({ blog, month, categoryList, archiveList }: Props) => (
       </Title>
       <Grid gutter={16}>
         {blog.map(({ title, hero, categories, publishedAt, id }) => (
-          <Grid.Col xs={12} sm={6} md={4} key={id}>
+          <Grid.Col xs={12} sm={6} md={6} key={id}>
             <ArticleCard
               id={id}
               title={title}
