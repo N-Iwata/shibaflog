@@ -38,7 +38,7 @@ const BlogContent = ({
           threshold: 1,
         }
 
-        const observerCallback = (entries: any) => {
+        const observerCallback = (entries: IntersectionObserverEntry[]) => {
           const entry = entries.find((entry: { isIntersecting: boolean }) => entry.isIntersecting)
           if (entry) {
             const index = anchorsArray.indexOf(entry.target)
