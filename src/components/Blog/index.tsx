@@ -66,7 +66,7 @@ const BlogContent = ({
 
       <Stack
         spacing='md'
-        p='xs'
+        p='xl'
         sx={(theme) => ({
           backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : 'white',
           color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.gray[9],
@@ -102,6 +102,7 @@ const BlogContent = ({
               width: '100%',
             },
             'h2,h3,h4': { marginTop: -70, paddingTop: 70 },
+            a: { color: 'teal' },
           }}
         />
 
