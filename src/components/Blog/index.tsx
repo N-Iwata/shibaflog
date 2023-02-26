@@ -66,12 +66,14 @@ const BlogContent = ({
 
       <Stack
         spacing='md'
-        p='xl'
         sx={(theme) => ({
           backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : 'white',
           color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.gray[9],
-
           borderRadius: 16,
+          padding: theme.spacing.xl,
+          '@media (max-width: 1000px)': {
+            padding: theme.spacing.sm,
+          },
         })}
       >
         <Title order={1}>{title}</Title>
