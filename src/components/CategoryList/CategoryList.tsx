@@ -26,10 +26,10 @@ const CategoryList = ({ categoryList }: Props) => (
 
     <Box mt={2} p='xs'>
       {categoryList.map(({ id, name }) => (
-        <Link href={`/category/${id}`} key={id} passHref>
-          <Box
-            component='a'
-            sx={(theme) => ({
+        <Box
+          key={id}
+          sx={(theme) => ({
+            a: {
               ...theme.fn.focusStyles(),
               display: 'block',
               paddingTop: theme.spacing.xs,
@@ -46,16 +46,18 @@ const CategoryList = ({ categoryList }: Props) => (
                 backgroundColor:
                   theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1],
               },
-            })}
-          >
+            },
+          })}
+        >
+          <Link href={`/category/${id}`} passHref>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <ThemeIcon color='teal' size={24} radius='xl' mr='xs'>
                 <IconTag />
               </ThemeIcon>
               <Text>{name}</Text>
             </Box>
-          </Box>
-        </Link>
+          </Link>
+        </Box>
       ))}
     </Box>
   </Box>

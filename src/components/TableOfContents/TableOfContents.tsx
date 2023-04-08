@@ -32,10 +32,10 @@ const TableOfContents = ({ tocData, activeId }: Props) => (
         const indent = parseInt(name.replace('h', ''), 10)
 
         return (
-          <Link href={`#${id}`} key={id} passHref>
-            <Box
-              component='a'
-              sx={(theme) => ({
+          <Box
+            key={id}
+            sx={(theme) => ({
+              a: {
                 ...theme.fn.focusStyles(),
                 display: 'block',
                 paddingTop: theme.spacing.xs,
@@ -61,11 +61,13 @@ const TableOfContents = ({ tocData, activeId }: Props) => (
                       : theme.colors.gray[1],
                 },
                 textDecoration: 'none',
-              })}
-            >
+              },
+            })}
+          >
+            <Link href={`#${id}`} passHref>
               {text}
-            </Box>
-          </Link>
+            </Link>
+          </Box>
         )
       })}
     </Box>
