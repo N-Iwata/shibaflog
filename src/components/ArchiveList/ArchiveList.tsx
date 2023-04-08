@@ -26,10 +26,10 @@ const ArchiveList = ({ archiveList }: Props) => (
 
     <Box mt={2} p='xs'>
       {Object.keys(archiveList).map((index) => (
-        <Link href={`/archive/${index}`} key={index} passHref>
-          <Box
-            component='a'
-            sx={(theme) => ({
+        <Box
+          key={index}
+          sx={(theme) => ({
+            a: {
               ...theme.fn.focusStyles(),
               display: 'block',
               paddingTop: theme.spacing.xs,
@@ -47,8 +47,10 @@ const ArchiveList = ({ archiveList }: Props) => (
                   theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1],
               },
               textDecoration: 'none',
-            })}
-          >
+            },
+          })}
+        >
+          <Link href={`/archive/${index}`} passHref>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <ThemeIcon color='teal' size={24} radius='xl' mr='xs'>
                 <IconCalendarStats />
@@ -57,8 +59,8 @@ const ArchiveList = ({ archiveList }: Props) => (
                 {index}（{archiveList[index].length}）
               </Text>
             </Box>
-          </Box>
-        </Link>
+          </Link>
+        </Box>
       ))}
     </Box>
   </Box>

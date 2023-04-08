@@ -34,10 +34,9 @@ const NavBar = () => {
         }}
       >
         <Group>
-          <Link href='/' passHref>
-            <Box
-              component='a'
-              sx={(theme) => ({
+          <Box
+            sx={(theme) => ({
+              a: {
                 color: theme.colors.gray[9],
                 cursor: 'pointer',
                 fontSize: 32,
@@ -45,8 +44,10 @@ const NavBar = () => {
                 ':hover': { textDecoration: 'none' },
                 textDecoration: 'none',
                 verticalAlign: 'middle',
-              })}
-            >
+              },
+            })}
+          >
+            <Link href='/' passHref>
               <Box sx={{ display: 'inline-flex', alignItems: 'center' }}>
                 <Image
                   src='/favicon/favicon.ico'
@@ -62,8 +63,8 @@ const NavBar = () => {
                   FLOG
                 </Box>
               </Box>
-            </Box>
-          </Link>
+            </Link>
+          </Box>
         </Group>
         <Group
           spacing='md'

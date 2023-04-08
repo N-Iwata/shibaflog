@@ -1,4 +1,4 @@
-import { Anchor, Box, Container, Group, Stack, Text } from '@mantine/core'
+import { Box, Container, Group, Stack, Text } from '@mantine/core'
 import Link from 'next/link'
 
 import { CONTENT_MAX_WIDTH, FOOTER_HEIGHT } from '@shibaflog/const/size'
@@ -24,26 +24,25 @@ const Footer = () => (
     >
       <Stack spacing={4}>
         <Group position='center'>
-          <Link href='/privacy_policy' passHref>
-            <Anchor
-              sx={(theme) => ({
-                color: theme.colors.gray[7],
-              })}
-              size='sm'
-            >
+          <Box
+            sx={(theme) => ({
+              color: theme.colors.gray[7],
+            })}
+          >
+            <Link href='/privacy_policy' passHref>
               Privacy policy
-            </Anchor>
-          </Link>
-          <Link href='/about' passHref>
-            <Anchor
-              sx={(theme) => ({
-                color: theme.colors.gray[7],
-              })}
-              size='sm'
-            >
+            </Link>
+          </Box>
+
+          <Box
+            sx={(theme) => ({
+              color: theme.colors.gray[7],
+            })}
+          >
+            <Link href='/about' passHref>
               About
-            </Anchor>
-          </Link>
+            </Link>
+          </Box>
         </Group>
         <Text
           sx={(theme) => ({

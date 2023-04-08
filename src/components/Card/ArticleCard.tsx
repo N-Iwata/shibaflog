@@ -18,9 +18,7 @@ const ArticleCard = ({ id, title, hero, categories, publishedAt }: Props) => (
   >
     <Card.Section mb='sm'>
       <Link href={`/blog/${id}`} passHref>
-        <Box component='a'>
-          <Image src={hero.url} alt={title} />
-        </Box>
+        <Image src={hero.url} alt={title} />
       </Link>
     </Card.Section>
 
@@ -32,11 +30,19 @@ const ArticleCard = ({ id, title, hero, categories, publishedAt }: Props) => (
       ))}
     </Box>
 
-    <Link href={`/blog/${id}`} passHref>
-      <Text component='a' weight={500}>
+    <Box
+      sx={(theme) => ({
+        a: {
+          fontWeight: 500,
+          textDecoration: 'none',
+          color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.gray[9],
+        },
+      })}
+    >
+      <Link href={`/blog/${id}`} passHref>
         {title}
-      </Text>
-    </Link>
+      </Link>
+    </Box>
 
     <Card.Section
       sx={(theme) => ({
